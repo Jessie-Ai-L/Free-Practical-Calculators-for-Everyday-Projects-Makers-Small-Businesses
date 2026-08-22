@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Candle Wax Calculator | DayKit</title>
+<meta name="description" content="Calculate how much candle wax and fragrance oil you need for any batch using wax fill weight, quantity and fragrance load.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/candle/candle-wax-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Candle Wax Calculator | DayKit">
+<meta property="og:description" content="Calculate how much candle wax and fragrance oil you need for any batch using wax fill weight, quantity and fragrance load.">
+<meta property="og:url" content="https://YOUR-DOMAIN.com/candle/candle-wax-calculator/">
+<meta property="og:site_name" content="DayKit">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Candle Wax Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Calculate how much candle wax and fragrance oil you need for any batch using wax fill weight, quantity and fragrance load.","url":"https://YOUR-DOMAIN.com/candle/candle-wax-calculator/"}</script>
+</head><body><header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">DayKit<small>Practical Calculators</small></span></a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a>
+</nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header><main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/candle/">Candle Calculators</a> › Candle Wax Calculator</nav>
+<section class="page-hero"><h1>Candle Wax Calculator</h1><p>Calculate how much candle wax and fragrance oil you need for a batch using the wax fill weight of your container.</p><div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ No signup required</span></div></section>
+<section class="calculator-shell orange"><div class="calc-panel"><div class="panel-heading"><span class="panel-icon o">🕯</span><h2 class="panel-title">Calculator</h2></div>
+<p class="panel-sub">Enter the wax fill weight for one candle, then set your batch size and fragrance load.</p>
+<form id="wax-form" novalidate><div class="field-grid">
+<div class="field"><label for="fill-weight">Wax Fill Weight per Candle <span class="help" title="Use wax weight to fill line, not nominal fluid-ounce capacity.">?</span></label><div class="input-wrap"><input id="fill-weight" type="number" min="0.01" step="0.01" value="5"><span class="unit">oz</span></div><div class="microcopy">Use actual wax weight to your fill line.</div></div>
+<div class="field"><label for="candle-count">Number of Candles</label><div class="input-wrap"><input id="candle-count" type="number" min="1" step="1" value="12"><span class="unit">pcs</span></div></div>
+<div class="field"><label for="fragrance-load">Fragrance Load</label><div class="input-wrap"><input id="fragrance-load" type="number" min="0" max="30" step="0.1" value="6"><span class="unit">%</span></div></div>
+<div class="field"><label for="extra-wax">Extra Wax Allowance</label><div class="input-wrap"><input id="extra-wax" type="number" min="0" max="25" step="0.5" value="3"><span class="unit">%</span></div></div>
+<div class="inline-note"><strong>Important:</strong> use wax weight to the fill line, not the container's advertised fluid-ounce capacity.</div>
+</div><div class="calc-actions"><button class="btn btn-primary" type="submit">Calculate Wax</button><button class="btn btn-secondary" id="reset-btn" type="button">Reset</button><button class="btn btn-secondary" id="copy-btn" type="button">Copy Result</button></div><div class="error" id="form-error"></div></form>
+</div><div class="result-panel"><div class="result-kicker">✓ Batch calculation ready</div><h2 class="panel-title">Your Results</h2><p class="panel-sub" style="margin-left:0">Based on wax weight, quantity and fragrance load.</p>
+<div class="primary-result"><div class="eyebrow">Wax to Prepare</div><div class="big" id="wax-purchase-result">61.8 oz</div><div class="sub" id="wax-pounds-result">3.86 lb including 3% extra allowance</div></div>
+<div class="result-list"><div class="result-row"><span class="result-label">Base Wax Needed</span><span class="result-value" id="wax-result">60 oz</span></div>
+<div class="result-row"><span class="result-label">Fragrance Oil Needed</span><span class="result-value" id="fragrance-result">3.71 oz</span></div>
+<div class="result-row"><span class="result-label">Total Batch Weight</span><span class="result-value" id="batch-result">65.51 oz</span></div>
+<div class="result-row"><span class="result-label">Per Candle</span><span class="result-value" id="per-candle-result">5.3 oz</span></div></div>
+<div class="recommendation" id="recommendation">Prepare about <strong>61.8 oz of wax</strong> and <strong>3.71 oz of fragrance oil</strong>.</div></div></section>
+<section class="content-card"><h2>How It Works</h2><ol class="steps"><li><div>Enter wax fill weight per candle.</div></li><li><div>Enter the number of candles.</div></li><li><div>Set the fragrance load recommended for your wax.</div></li><li><div>Add an optional wax buffer for spills and topping off.</div></li></ol></section>
+<section class="content-card"><h2>Formula</h2><div class="formula">Base Wax = Fill Weight × Candle Count</div><div class="formula">Wax to Prepare = Base Wax × (1 + Extra Allowance)</div><div class="formula">Fragrance Oil = Wax to Prepare × Fragrance Load</div></section>
+<section class="content-card"><h2>Related Candle Calculators</h2><div class="related-grid">
+<article class="related-card"><h3>Candle Fragrance Calculator</h3><p>Calculate fragrance oil from wax weight and load.</p><a class="status" href="/candle/candle-fragrance-calculator/">Calculate →</a></article>
+<article class="related-card"><h3>Candle Cost Calculator</h3><p>Calculate true cost and suggested price.</p><a class="status" href="/candle/candle-cost-calculator/">Calculate →</a></article>
+</div></section>
+</div></main><footer class="site-footer"><div class="container">
+<div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">DayKit<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li><li><a href="/food/">Food & Recipe</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/food/">Food & Recipe</a></li><li><a href="/quilting/">Sewing & Quilting</a></li><li><a href="/3d-printing/">3D Printing</a></li><li><a href="/gardening/">Gardening</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About DayKit</a></li><li><a href="/guides/">Guides</a></li><li><a href="/contact/">Contact Us</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
+</div><div class="copyright">© 2026 DayKit. All rights reserved.</div>
+</div></footer><script src="/candle/candle-wax-calculator/calculator.js"></script></body></html>

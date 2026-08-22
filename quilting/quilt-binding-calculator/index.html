@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quilt Binding Calculator | DayKit</title>
+<meta name="description" content="Calculate how much quilt binding you need, including total binding length, number of strips, and fabric yardage.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/quilting/quilt-binding-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quilt Binding Calculator | DayKit">
+<meta property="og:description" content="Calculate how much quilt binding you need, including total binding length, number of strips, and fabric yardage.">
+<meta property="og:url" content="https://YOUR-DOMAIN.com/quilting/quilt-binding-calculator/">
+<meta property="og:site_name" content="DayKit">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Quilt Binding Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Calculate how much quilt binding you need, including total binding length, number of strips, and fabric yardage.","url":"https://YOUR-DOMAIN.com/quilting/quilt-binding-calculator/"}</script>
+</head><body><header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">DayKit<small>Practical Calculators</small></span></a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a>
+</nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header><main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/quilting/">Sewing & Quilting Calculators</a> › Quilt Binding Calculator</nav>
+<section class="page-hero"><h1>Quilt Binding Calculator</h1><p>Calculate binding length, strip count, exact fabric yardage and a recommended purchase amount for regular quilt binding.</p><div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ No signup required</span></div></section>
+<section class="calculator-shell "><div class="calc-panel"><div class="panel-heading"><span class="panel-icon p">QB</span><h2 class="panel-title">Calculator</h2></div>
+<p class="panel-sub">For regular straight-grain or cross-grain binding cut across the usable fabric width.</p>
+<form id="binding-form"><div class="field-grid">
+<div class="field"><label>Quilt Width</label><div class="input-wrap"><input id="quilt-width" type="number" min="0.01" step="0.01" value="70"><span class="unit">in</span></div></div>
+<div class="field"><label>Quilt Length</label><div class="input-wrap"><input id="quilt-length" type="number" min="0.01" step="0.01" value="84"><span class="unit">in</span></div></div>
+<div class="field"><label>Binding Strip Width</label><div class="input-wrap"><input id="strip-width" type="number" min="0.01" step="0.01" value="2.5"><span class="unit">in</span></div></div>
+<div class="field"><label>Usable Fabric Width</label><div class="input-wrap"><input id="fabric-width" type="number" min="0.01" step="0.01" value="43"><span class="unit">in</span></div></div>
+<div class="field full"><label>Extra Binding</label><div class="input-wrap"><input id="extra-binding" type="number" min="0" step="0.01" value="10"><span class="unit">in</span></div></div>
+</div><div class="calc-actions"><button class="btn btn-primary" type="submit">Calculate Binding</button><button class="btn btn-secondary" id="reset-btn" type="button">Reset</button><button class="btn btn-secondary" id="copy-btn" type="button">Copy Result</button></div><div class="error" id="form-error"></div></form>
+</div><div class="result-panel"><div class="result-kicker">✓ Binding calculation ready</div><h2 class="panel-title">Your Results</h2><p class="panel-sub" style="margin-left:0">Based on your quilt and fabric measurements.</p>
+<div class="primary-result"><div class="eyebrow">Recommended Purchase</div><div class="big" id="purchase-result">5/8 yd</div><div class="sub">Rounded up to the next 1/8 yard</div></div>
+<div class="result-list"><div class="result-row"><span class="result-label">Quilt Perimeter</span><span class="result-value" id="perimeter-result">308 in</span></div>
+<div class="result-row"><span class="result-label">Total Binding Length</span><span class="result-value" id="binding-result">318 in</span></div>
+<div class="result-row"><span class="result-label">Binding Strips</span><span class="result-value" id="strips-result">8 strips</span></div>
+<div class="result-row"><span class="result-label">Exact Fabric Needed</span><span class="result-value" id="yardage-result">0.56 yd</span></div></div>
+<div class="recommendation" id="recommendation">Cut <strong>8 strips</strong>, each <strong>2.5" wide</strong>, across your 43" fabric. Buy at least <strong>5/8 yard</strong>.</div></div></section>
+<section class="content-card"><h2>Formula</h2><div class="formula">Perimeter = 2 × (Width + Length)</div><div class="formula">Strips = ceil((Perimeter + Extra Binding) ÷ Usable Fabric Width)</div><div class="formula">Yardage = (Strips × Strip Width) ÷ 36</div></section>
+</div></main><footer class="site-footer"><div class="container">
+<div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">DayKit<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li><li><a href="/food/">Food & Recipe</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/food/">Food & Recipe</a></li><li><a href="/quilting/">Sewing & Quilting</a></li><li><a href="/3d-printing/">3D Printing</a></li><li><a href="/gardening/">Gardening</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About DayKit</a></li><li><a href="/guides/">Guides</a></li><li><a href="/contact/">Contact Us</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
+</div><div class="copyright">© 2026 DayKit. All rights reserved.</div>
+</div></footer><script src="/quilting/quilt-binding-calculator/calculator.js"></script></body></html>

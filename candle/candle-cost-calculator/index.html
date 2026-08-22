@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Candle Cost Calculator | DayKit</title>
+<meta name="description" content="Calculate candle material cost, labor, overhead, cost per candle, batch cost, and suggested selling price.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/candle/candle-cost-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Candle Cost Calculator | DayKit">
+<meta property="og:description" content="Calculate candle material cost, labor, overhead, cost per candle, batch cost, and suggested selling price.">
+<meta property="og:url" content="https://YOUR-DOMAIN.com/candle/candle-cost-calculator/">
+<meta property="og:site_name" content="DayKit">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Candle Cost Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Calculate candle material cost, labor, overhead, cost per candle, batch cost, and suggested selling price.","url":"https://YOUR-DOMAIN.com/candle/candle-cost-calculator/"}</script>
+</head><body><header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">DayKit<small>Practical Calculators</small></span></a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a>
+</nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header><main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/candle/">Candle Calculators</a> › Candle Cost Calculator</nav>
+<section class="page-hero"><h1>Candle Cost Calculator</h1><p>Calculate your true candle cost per unit, total batch cost, and a suggested selling price based on your target profit margin.</p><div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ No signup required</span></div></section>
+<section class="calculator-shell green"><div class="calc-panel"><div class="panel-heading"><span class="panel-icon g">$</span><h2 class="panel-title">Calculator</h2></div>
+<p class="panel-sub">Enter per-candle material costs, batch size, labor, overhead, and target margin.</p>
+<form id="cost-form"><div class="field-grid">
+<div class="section-label">Materials — cost per candle</div>
+<div class="field"><label>Wax Cost</label><div class="input-wrap"><input id="wax-cost" type="number" min="0" step="0.01" value="1.20"><span class="unit">$</span></div></div>
+<div class="field"><label>Fragrance Cost</label><div class="input-wrap"><input id="fragrance-cost" type="number" min="0" step="0.01" value="0.85"><span class="unit">$</span></div></div>
+<div class="field"><label>Jar / Vessel Cost</label><div class="input-wrap"><input id="vessel-cost" type="number" min="0" step="0.01" value="1.50"><span class="unit">$</span></div></div>
+<div class="field"><label>Wick Cost</label><div class="input-wrap"><input id="wick-cost" type="number" min="0" step="0.01" value="0.18"><span class="unit">$</span></div></div>
+<div class="field"><label>Label Cost</label><div class="input-wrap"><input id="label-cost" type="number" min="0" step="0.01" value="0.22"><span class="unit">$</span></div></div>
+<div class="field"><label>Packaging Cost</label><div class="input-wrap"><input id="packaging-cost" type="number" min="0" step="0.01" value="0.55"><span class="unit">$</span></div></div>
+<div class="field full"><label>Other Material Cost</label><div class="input-wrap"><input id="other-cost" type="number" min="0" step="0.01" value="0.20"><span class="unit">$</span></div></div>
+<div class="section-label">Batch & business costs</div>
+<div class="field"><label>Candles per Batch</label><input id="batch-size" type="number" min="1" step="1" value="12"></div>
+<div class="field"><label>Labor Cost per Batch</label><div class="input-wrap"><input id="labor-cost" type="number" min="0" step="0.01" value="18"><span class="unit">$</span></div></div>
+<div class="field"><label>Overhead per Batch</label><div class="input-wrap"><input id="overhead-cost" type="number" min="0" step="0.01" value="6"><span class="unit">$</span></div></div>
+<div class="field"><label>Target Profit Margin</label><div class="input-wrap"><input id="target-margin" type="number" min="0" max="95" step="1" value="50"><span class="unit">%</span></div></div>
+</div><div class="calc-actions"><button class="btn btn-primary" type="submit">Calculate Candle Cost</button><button class="btn btn-secondary" id="reset-btn" type="button">Reset</button><button class="btn btn-secondary" id="copy-btn" type="button">Copy Result</button></div><div class="error" id="form-error"></div></form>
+</div><div class="result-panel"><div class="result-kicker">✓ Cost calculation ready</div><h2 class="panel-title">Your Results</h2><p class="panel-sub" style="margin-left:0">Materials, labor, overhead and margin.</p>
+<div class="primary-result"><div class="eyebrow">True Cost per Candle</div><div class="big" id="unit-cost-result">$6.70</div><div class="sub">Includes materials, labor and overhead</div></div>
+<div class="result-list"><div class="result-row"><span class="result-label">Material Cost per Candle</span><span class="result-value" id="material-result">$4.70</span></div>
+<div class="result-row"><span class="result-label">Labor + Overhead per Candle</span><span class="result-value" id="labor-overhead-result">$2.00</span></div>
+<div class="result-row"><span class="result-label">Total Batch Cost</span><span class="result-value" id="batch-cost-result">$80.40</span></div>
+<div class="result-row"><span class="result-label">Suggested Selling Price</span><span class="result-value" id="price-result">$13.40</span></div>
+<div class="result-row"><span class="result-label">Profit per Candle</span><span class="result-value" id="profit-result">$6.70</span></div></div>
+<div class="recommendation" id="recommendation">Your true cost is <strong>$6.70 per candle</strong>. At a <strong>50% target margin</strong>, a suggested price is <strong>$13.40</strong>.</div></div></section>
+<section class="content-card"><h2>Pricing Formula</h2><div class="formula">True Unit Cost = Materials + ((Labor + Overhead) ÷ Batch Size)</div><div class="formula">Selling Price = True Unit Cost ÷ (1 − Target Margin)</div><div class="caution">Profit margin and markup are not the same. This calculator uses profit margin.</div></section>
+<section class="content-card"><h2>Related Candle Calculators</h2><div class="related-grid">
+<article class="related-card"><h3>Candle Wax Calculator</h3><p>Plan wax and fragrance for a batch.</p><a class="status" href="/candle/candle-wax-calculator/">Calculate →</a></article>
+<article class="related-card"><h3>Candle Fragrance Calculator</h3><p>Calculate fragrance oil from wax weight.</p><a class="status" href="/candle/candle-fragrance-calculator/">Calculate →</a></article></div></section>
+</div></main><footer class="site-footer"><div class="container">
+<div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">DayKit<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li><li><a href="/food/">Food & Recipe</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/food/">Food & Recipe</a></li><li><a href="/quilting/">Sewing & Quilting</a></li><li><a href="/3d-printing/">3D Printing</a></li><li><a href="/gardening/">Gardening</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About DayKit</a></li><li><a href="/guides/">Guides</a></li><li><a href="/contact/">Contact Us</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
+</div><div class="copyright">© 2026 DayKit. All rights reserved.</div>
+</div></footer><script src="/candle/candle-cost-calculator/calculator.js"></script></body></html>
