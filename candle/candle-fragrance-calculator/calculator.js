@@ -28,7 +28,10 @@ function calculate(){
   return latest;
 }
 $('fragrance-form').addEventListener('submit',e=>{e.preventDefault();calculate()});
-document.querySelectorAll('#fragrance-form input,#fragrance-form select').forEach(x=>x.addEventListener('input',calculate));
+document.querySelectorAll('#fragrance-form input,#fragrance-form select').forEach(x=>{
+  x.addEventListener('input',calculate);
+  x.addEventListener('change',calculate);
+});
 $('reset-btn').addEventListener('click',()=>{
   $('wax-weight').value=16;$('weight-unit').value='oz';$('fragrance-load').value=8;$('batches').value=1;calculate();
 });

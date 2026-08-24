@@ -110,3 +110,7 @@ The shared stylesheet is cache-busted as `style.css?v=9.2`.
 - Added oz/g support, multiple-batch scaling, reset and copy.
 - Added formulas, 16 oz worked example, reference table, fragrance-load explanation, FAQs and related calculators.
 - URL and canonical remain unchanged.
+
+
+## V11.1 Fragrance calculator function fix
+The upgraded HTML reused the same `calculator.js` URL as the older version, so browser/CDN cache could serve stale JavaScript that no longer matched the new field IDs. V11.1 cache-busts the script as `calculator.js?v=11.1` and listens to both input and change events.
