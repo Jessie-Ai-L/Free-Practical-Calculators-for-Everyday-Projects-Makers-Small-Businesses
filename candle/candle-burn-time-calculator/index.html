@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Candle Burn Time Calculator – Estimate Candle Burn Hours | MakerEstimate</title>
+<meta name="description" content="Estimate candle burn time with a quick planning estimate or calculate burn rate from a real burn test for a more useful burn-time estimate.">
+<link rel="canonical" href="https://makerestimate.com/candle/candle-burn-time-calculator/">
+<meta property="og:title" content="Candle Burn Time Calculator – Estimate Candle Burn Hours | MakerEstimate">
+<meta property="og:description" content="Estimate candle burn hours or calculate burn rate from a measured candle burn test.">
+<meta property="og:url" content="https://makerestimate.com/candle/candle-burn-time-calculator/">
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>
+.mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.mode-tab{border:1px solid #dfe1ea;background:#fff;border-radius:9px;padding:10px;font-weight:800;cursor:pointer;color:#596074}
+.mode-tab.active{border-color:#6655f6;background:#f3f1ff;color:#4e3fe6}
+.mode-pane[hidden]{display:none}.helper{font-size:11px;color:#7c8292;margin-top:5px}
+.result-kicker{font-size:10px;font-weight:900;color:#42ad68;text-transform:uppercase;letter-spacing:.08em}
+.notice{background:#fff8e8;border:1px solid #f1dfb2;border-radius:10px;padding:12px 14px;font-size:12px;color:#6e5b2c;margin-top:14px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Candle Burn Time Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://makerestimate.com/candle/candle-burn-time-calculator/","description":"Estimate candle burn time or calculate burn rate from a measured burn test."}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a>
+<nav class="nav-links"><a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a></nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header>
+
+<main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/candle/">Candle Calculators</a> › Candle Burn Time Calculator</nav>
+<section class="page-hero">
+<h1>Candle Burn Time Calculator</h1>
+<p>Estimate total candle burn hours with a quick planning mode, or use your own burn-test measurements for a more useful estimate.</p>
+<div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ oz & g support</span></div>
+</section>
+
+<section class="calculator-shell">
+<div class="calc-panel">
+<h2 class="panel-title">Calculator</h2>
+<div class="mode-tabs">
+<button type="button" class="mode-tab active" data-mode="test">Burn Test (Recommended)</button>
+<button type="button" class="mode-tab" data-mode="quick">Quick Estimate</button>
+</div>
+
+<div class="mode-pane" id="test-pane">
+<p class="panel-sub">Use measured weight loss from a controlled burn test to calculate your candle's burn rate.</p>
+<form id="test-form">
+<div class="field-grid">
+<div class="field"><label>Starting Candle Weight</label><div class="input-wrap"><input id="start-weight" type="number" value="16" min=".01" step=".01"><span class="unit unit-label">oz</span></div><div class="helper">Candle weight immediately before the test.</div></div>
+<div class="field"><label>Ending Candle Weight</label><div class="input-wrap"><input id="end-weight" type="number" value="15" min="0" step=".01"><span class="unit unit-label">oz</span></div><div class="helper">Candle weight immediately after the test.</div></div>
+<div class="field"><label>Test Duration</label><div class="input-wrap"><input id="test-hours" type="number" value="4" min=".01" step=".25"><span class="unit">hours</span></div></div>
+<div class="field"><label>Usable Wax Weight</label><div class="input-wrap"><input id="usable-weight" type="number" value="8" min=".01" step=".01"><span class="unit unit-label">oz</span></div><div class="helper">Wax expected to be consumed over the candle's usable life.</div></div>
+<div class="field"><label>Weight Unit</label><select id="test-unit"><option value="oz">Ounces (oz)</option><option value="g">Grams (g)</option></select></div>
+</div>
+<div class="calc-actions"><button class="btn btn-primary">Calculate Burn Time</button></div>
+<div class="error" id="test-error"></div>
+</form>
+</div>
+
+<div class="mode-pane" id="quick-pane" hidden>
+<p class="panel-sub">For planning only. Choose a measured or assumed burn rate rather than relying on wax type alone.</p>
+<form id="quick-form">
+<div class="field-grid">
+<div class="field"><label>Usable Wax Weight</label><div class="input-wrap"><input id="quick-wax" type="number" value="8" min=".01" step=".01"><span class="unit quick-unit-label">oz</span></div></div>
+<div class="field"><label>Estimated Burn Rate</label><div class="input-wrap"><input id="quick-rate" type="number" value=".25" min=".001" step=".01"><span class="unit" id="rate-unit">oz/hr</span></div><div class="helper">Use a prior test, supplier guidance, or a conservative planning assumption.</div></div>
+<div class="field"><label>Weight Unit</label><select id="quick-unit"><option value="oz">Ounces (oz)</option><option value="g">Grams (g)</option></select></div>
+</div>
+<div class="calc-actions"><button class="btn btn-primary">Estimate Burn Time</button></div>
+<div class="error" id="quick-error"></div>
+</form>
+</div>
+</div>
+
+<div class="result-panel" aria-live="polite">
+<div class="result-kicker">Estimated performance</div>
+<h2 class="panel-title">Your Results</h2>
+<div class="primary-result"><div class="eyebrow">Estimated Burn Time</div><div class="big" id="burn-time">32 hours</div><div class="sub">Approximate total usable burn life</div></div>
+<div class="result-row"><span class="result-label">Burn Rate</span><span class="result-value" id="burn-rate">0.25 oz/hr</span></div>
+<div class="result-row"><span class="result-label">Approx. 4-Hour Sessions</span><span class="result-value" id="sessions">8 sessions</span></div>
+<div class="result-row"><span class="result-label">Conservative Label Estimate</span><span class="result-value" id="label-estimate">~28–30 hours</span></div>
+<div class="recommendation" id="recommendation">Based on your measured burn rate, this candle is estimated to provide about <strong>32 total burn hours</strong>.</div>
+<div class="notice"><strong>Important:</strong> this is an estimate, not a safety certification. Validate finished candles with appropriate burn testing before making performance claims.</div>
+</div>
+</section>
+
+<section class="content-card">
+<h2>How the Candle Burn Time Calculator Works</h2>
+<p>The recommended mode uses your candle's measured weight loss during a timed burn test. This captures the combined effect of your wick, wax, fragrance, vessel and formulation better than a generic wax-type assumption.</p>
+<div class="formula">Burn Rate = (Starting Weight − Ending Weight) ÷ Test Hours</div>
+<div class="formula">Estimated Burn Time = Usable Wax Weight ÷ Burn Rate</div>
+</section>
+
+<section class="content-card">
+<h2>Example</h2>
+<p>If a candle loses 1 oz during a 4-hour test, its measured burn rate is 0.25 oz per hour. If the candle contains 8 oz of usable wax, the estimated total burn life is:</p>
+<div class="formula">8 oz ÷ 0.25 oz/hour = 32 hours</div>
+</section>
+
+<section class="content-card">
+<h2>Why Burn Testing Matters</h2>
+<p>Two candles with the same wax weight can burn at different rates. Wick size and count, vessel diameter, wax blend, fragrance, dye and formulation can all affect real-world performance. Use the quick mode for planning, then replace assumptions with measured burn-test data.</p>
+</section>
+
+<section class="content-card">
+<h2>Frequently Asked Questions</h2>
+<details><summary>How do you calculate candle burn time?</summary><p>Measure how much candle weight is lost during a timed burn test, divide that loss by the test duration to get burn rate, then divide usable wax weight by the burn rate.</p></details>
+<details><summary>Does an 8 oz candle always burn for the same number of hours?</summary><p>No. Equal wax weights can have different burn rates because candle construction and formulation affect how quickly fuel is consumed.</p></details>
+<details><summary>Can I use this calculator without doing a burn test?</summary><p>Yes. Quick Estimate mode accepts an assumed burn rate, but a measured burn rate from your own finished candle is more useful.</p></details>
+<details><summary>What does total burn time mean?</summary><p>It means the approximate cumulative usable life across multiple burn sessions, not a recommendation to burn the candle continuously for that many hours.</p></details>
+</section>
+
+<section class="content-card">
+<h2>Related Candle Calculators</h2>
+<div class="cards">
+<a class="card" href="/candle/candle-batch-calculator/"><span class="icon o">🕯</span><h3>Candle Batch Calculator</h3><p>Plan wax and fragrance for multiple candles.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-wax-calculator/"><span class="icon o">W</span><h3>Candle Wax Calculator</h3><p>Calculate wax needed for your candle project.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-cost-calculator/"><span class="icon g">$</span><h3>Candle Cost Calculator</h3><p>Calculate production cost and selling price.</p><span class="go">Calculate →</span></a>
+</div>
+</section>
+</div></main>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/quilting/">Sewing & Quilting</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About MakerEstimate</a></li><li><a href="/guides/">Guides</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
+</div><div class="copyright">© 2026 MakerEstimate. All rights reserved.</div></div></footer>
+<script src="/candle/candle-burn-time-calculator/calculator.js"></script>
+</body></html>
