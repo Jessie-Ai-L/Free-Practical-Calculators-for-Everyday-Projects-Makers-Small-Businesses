@@ -82,3 +82,13 @@ Sitemap should now contain 22 URLs.
 
 
 V7: Added Candle Wick Size Calculator at /candle/candle-wick-size-calculator/, plus homepage, calculators, candle category and sitemap links. Recommendations are burn-test starting ranges, not guarantees.
+
+
+## V9 QA / stabilization release
+No new calculator was added in this release.
+
+Changes:
+- Site-wide footer spacing and responsive layout fix.
+- Automated QA scan for page titles, meta descriptions, H1s, canonicals, internal links and sitemap targets.
+- Legacy DayKit normalization.
+- See `QA-REPORT.md` for the scan summary.
