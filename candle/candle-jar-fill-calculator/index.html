@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Candle Jar Fill Calculator – Wax & Fragrance Amounts | MakerEstimate</title>
+<meta name="description" content="Calculate how much wax and fragrance oil you need to fill candle jars. Enter jar capacity, fill level, fragrance load and quantity for instant results.">
+<link rel="canonical" href="https://makerestimate.com/candle/candle-jar-fill-calculator/">
+<meta property="og:title" content="Candle Jar Fill Calculator – Wax & Fragrance Amounts | MakerEstimate">
+<meta property="og:description" content="Estimate wax and fragrance needed from candle jar capacity, fill level and quantity.">
+<meta property="og:url" content="https://makerestimate.com/candle/candle-jar-fill-calculator/">
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>
+.result-kicker{font-size:10px;font-weight:900;color:#42ad68;text-transform:uppercase;letter-spacing:.08em}
+.helper{font-size:11px;color:#7c8292;margin-top:5px}
+.density-note{background:#f8f6ff;border:1px solid #e3dfff;border-radius:10px;padding:12px 14px;font-size:12px;color:#5c547d;margin-top:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.statbox{border:1px solid #e7e8f0;border-radius:10px;padding:12px;background:#fff}
+.statbox strong{display:block;font-size:18px;margin-top:2px}
+@media(max-width:700px){.grid3{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Candle Jar Fill Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://makerestimate.com/candle/candle-jar-fill-calculator/","description":"Calculate wax and fragrance needed from candle jar capacity, fill level and quantity."}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a>
+<nav class="nav-links"><a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a></nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header>
+
+<main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/candle/">Candle Calculators</a> › Candle Jar Fill Calculator</nav>
+
+<section class="page-hero">
+<h1>Candle Jar Fill Calculator</h1>
+<p>Estimate how much wax and fragrance oil you need to fill one jar or an entire batch from container capacity and fill level.</p>
+<div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ fl oz & ml support</span></div>
+</section>
+
+<section class="calculator-shell">
+<div class="calc-panel">
+<h2 class="panel-title">Jar Fill Calculator</h2>
+<p class="panel-sub">Container capacity is a volume measurement, so this tool converts volume to wax weight using an adjustable density factor.</p>
+
+<form id="jar-form" novalidate>
+<div class="field-grid">
+
+<div class="field">
+<label for="capacity">Jar Capacity</label>
+<input id="capacity" type="number" value="8" min=".1" step=".1">
+<div class="helper">Use the jar's measured or advertised liquid capacity.</div>
+</div>
+
+<div class="field">
+<label for="capacity-unit">Capacity Unit</label>
+<select id="capacity-unit">
+<option value="floz" selected>Fluid Ounces (fl oz)</option>
+<option value="ml">Milliliters (ml)</option>
+</select>
+</div>
+
+<div class="field">
+<label for="fill-percent">Target Fill Level</label>
+<div class="input-wrap"><input id="fill-percent" type="number" value="90" min="1" max="100" step="1"><span class="unit">%</span></div>
+<div class="helper">Leaves headspace below the rim.</div>
+</div>
+
+<div class="field">
+<label for="wax-density">Wax Density Factor</label>
+<input id="wax-density" type="number" value="0.90" min=".5" max="1.2" step=".01">
+<div class="helper">Approximate wax density in g/ml. Adjust if you know your wax's tested value.</div>
+</div>
+
+<div class="field">
+<label for="fragrance-load">Fragrance Load</label>
+<div class="input-wrap"><input id="fragrance-load" type="number" value="8" min="0" max="30" step=".1"><span class="unit">%</span></div>
+<div class="helper">Calculated as a percentage of wax weight.</div>
+</div>
+
+<div class="field">
+<label for="jar-count">Number of Jars</label>
+<input id="jar-count" type="number" value="12" min="1" step="1">
+</div>
+
+<div class="inline-note">
+<strong>Important:</strong> fluid ounces measure volume, while candle wax is usually weighed. An 8 fl oz jar does not necessarily hold 8 oz of wax by weight.
+</div>
+
+</div>
+
+<div class="calc-actions">
+<button class="btn btn-primary" type="submit">Calculate Jar Fill</button>
+<button class="btn btn-secondary" id="reset-btn" type="button">Reset</button>
+<button class="btn btn-secondary" id="copy-btn" type="button">Copy Results</button>
+</div>
+<div id="form-error" class="error" role="alert" aria-live="polite"></div>
+</form>
+</div>
+
+<div class="result-panel" aria-live="polite">
+<div class="result-kicker">Jar fill plan</div>
+<h2 class="panel-title">Your Results</h2>
+
+<div class="primary-result">
+<div class="eyebrow">Wax Needed per Jar</div>
+<div class="big" id="wax-per-jar">6.86 oz</div>
+<div class="sub">Estimated wax weight before fragrance</div>
+</div>
+
+<div class="result-row"><span class="result-label">Fragrance per Jar</span><span class="result-value" id="fragrance-per-jar">0.55 oz</span></div>
+<div class="result-row"><span class="result-label">Finished Fill per Jar</span><span class="result-value" id="finished-per-jar">7.41 oz</span></div>
+<div class="result-row"><span class="result-label">Total Wax Needed</span><span class="result-value" id="total-wax">82.32 oz</span></div>
+<div class="result-row"><span class="result-label">Total Fragrance Needed</span><span class="result-value" id="total-fragrance">6.59 oz</span></div>
+<div class="result-row"><span class="result-label">Total Batch Weight</span><span class="result-value" id="total-batch">88.90 oz</span></div>
+
+<div class="recommendation" id="recommendation">For 12 jars, prepare about <strong>82.32 oz of wax</strong> and <strong>6.59 oz of fragrance oil</strong>.</div>
+<div class="density-note">The density factor is editable because different waxes and blends can have different real-world densities. For production, validate the result with your own jar-and-wax fill test.</div>
+</div>
+</section>
+
+<section class="content-card">
+<h2>How the Candle Jar Fill Calculator Works</h2>
+<p>The calculator first converts your jar capacity to milliliters, applies your target fill percentage, then converts that usable volume to wax weight using the density factor you entered.</p>
+<div class="formula">Usable Volume = Jar Capacity × Fill Percentage</div>
+<div class="formula">Wax Weight = Usable Volume × Wax Density</div>
+<div class="formula">Fragrance Oil = Wax Weight × Fragrance Load</div>
+</section>
+
+<section class="content-card">
+<h2>Why Fluid Ounces and Wax Ounces Are Different</h2>
+<p>Fluid ounces measure volume. Ounces used for candle wax usually describe weight. Because wax density is different from water density, an 8 fl oz jar should not automatically be treated as requiring 8 oz of wax.</p>
+</section>
+
+<section class="content-card">
+<h2>Worked Example</h2>
+<p>For an 8 fl oz jar filled to 90%, using a density factor of 0.90 g/ml and an 8% fragrance load, the calculator estimates the wax weight first and then adds fragrance based on wax weight. Multiply those per-jar results by your batch quantity for total materials.</p>
+</section>
+
+<section class="content-card">
+<h2>How Much Headspace Should I Leave?</h2>
+<p>The target fill percentage lets you leave space below the rim. For example, 90% uses 90% of the jar's volume. Your actual fill line should be based on the vessel design, wick setup, lid clearance and your own production testing.</p>
+</section>
+
+<section class="content-card">
+<h2>Frequently Asked Questions</h2>
+<details><summary>How much wax do I need for an 8 oz candle jar?</summary><p>That depends on whether 8 oz refers to fluid capacity or tested wax weight. If it is fluid capacity, convert the usable volume to wax weight using the wax density rather than assuming 8 fluid ounces equals 8 ounces of wax.</p></details>
+<details><summary>Can I use milliliters instead of fluid ounces?</summary><p>Yes. Select milliliters and the calculator will use the same density-based method.</p></details>
+<details><summary>Why is wax density editable?</summary><p>Different waxes and blends can have different densities. The default is a practical planning assumption, but your tested wax value is better when available.</p></details>
+<details><summary>Does fragrance load change how much fits in the jar?</summary><p>Yes, because fragrance contributes to finished candle weight. This calculator reports wax, fragrance and finished fill separately so you can plan the batch more clearly.</p></details>
+</section>
+
+<section class="content-card">
+<h2>Related Candle Calculators</h2>
+<div class="cards">
+<a class="card" href="/candle/candle-wax-calculator/"><span class="icon o">W</span><h3>Candle Wax Calculator</h3><p>Already know your fill weight? Calculate wax for a candle batch.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-batch-calculator/"><span class="icon o">B</span><h3>Candle Batch Calculator</h3><p>Scale wax and fragrance for multiple candles.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-pricing-calculator/"><span class="icon g">$</span><h3>Candle Pricing Calculator</h3><p>Turn true unit cost into a target retail price.</p><span class="go">Calculate →</span></a>
+</div>
+</section>
+</div></main>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/quilting/">Sewing & Quilting</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About MakerEstimate</a></li><li><a href="/guides/">Guides</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
+</div><div class="copyright">© 2026 MakerEstimate. All rights reserved.</div></div></footer>
+<script src="/candle/candle-jar-fill-calculator/calculator.js"></script>
+</body></html>

@@ -63,3 +63,19 @@ Validation cases:
 Homepage, Candle category, All Calculators, and sitemap are synchronized with:
 - Candle Burn Time Calculator
 - Candle Pricing Calculator
+
+## V6: Candle Jar Fill Calculator
+URL:
+https://makerestimate.com/candle/candle-jar-fill-calculator/
+
+Default validation:
+8 fl oz jar, 90% fill, density 0.90 g/ml, 8% fragrance, 12 jars.
+Expected approximately:
+- Wax per jar: 6.76 oz
+- Fragrance per jar: 0.54 oz
+- Finished per jar: 7.30 oz
+- Total wax: 81.14 oz
+- Total fragrance: 6.49 oz
+- Total batch: 87.63 oz
+
+Sitemap should now contain 22 URLs.
