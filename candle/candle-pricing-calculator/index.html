@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Candle Pricing Calculator – Retail Price, Margin & Fees | MakerEstimate</title>
+<meta name="description" content="Calculate a candle selling price from your true unit cost, target profit margin, selling fees, fixed fees and absorbed shipping.">
+<link rel="canonical" href="https://makerestimate.com/candle/candle-pricing-calculator/">
+<meta property="og:title" content="Candle Pricing Calculator – Retail Price, Margin & Fees | MakerEstimate">
+<meta property="og:description" content="Turn true candle cost into a retail price that protects your target margin after selling fees.">
+<meta property="og:url" content="https://makerestimate.com/candle/candle-pricing-calculator/">
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>
+.preset-row{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0 14px}
+.preset{border:1px solid #dfe1ea;background:#fff;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800;cursor:pointer;color:#626879}
+.preset:hover{border-color:#6a58f5;color:#4f3fe6}
+.money-prefix{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:12px;color:#8c91a1;font-weight:800}
+.input-money input{padding-left:27px}
+.result-kicker{font-size:10px;font-weight:900;color:#42ad68;text-transform:uppercase;letter-spacing:.08em}
+.breakdown{margin-top:15px;background:#fff;border:1px solid #e7e8f0;border-radius:11px;padding:12px 14px}
+.breakdown h3{font-size:12px;margin:0 0 8px}
+.breakdown-line{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#6d7384;padding:4px 0}
+.breakdown-line strong{color:#11163f}
+.warning{background:#fff8e8;border:1px solid #f1dfb2;border-radius:10px;padding:12px 14px;font-size:12px;color:#6e5b2c;margin-top:14px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Candle Pricing Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://makerestimate.com/candle/candle-pricing-calculator/","description":"Calculate a candle selling price from true unit cost, target margin and selling fees."}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a>
+<nav class="nav-links"><a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a></nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header>
+
+<main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/candle/">Candle Calculators</a> › Candle Pricing Calculator</nav>
+
+<section class="page-hero">
+<h1>Candle Pricing Calculator</h1>
+<p>Turn your true cost per candle into a selling price that still leaves your target margin after percentage fees, fixed fees and shipping you absorb.</p>
+<div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ Margin-aware pricing</span></div>
+</section>
+
+<section class="calculator-shell">
+<div class="calc-panel">
+<h2 class="panel-title">Pricing Calculator</h2>
+<p class="panel-sub">Start with the true unit cost from your materials, labor and overhead. Then set the margin and fees that apply to the sale.</p>
+
+<form id="pricing-form" novalidate>
+<div class="field-grid">
+
+<div class="field">
+<label for="unit-cost">True Cost per Candle</label>
+<div class="input-wrap input-money"><span class="money-prefix">$</span><input id="unit-cost" type="number" value="6.50" min="0" step=".01"></div>
+<div class="microcopy">Materials + labor + overhead per finished candle.</div>
+</div>
+
+<div class="field">
+<label for="margin">Target Profit Margin</label>
+<div class="input-wrap"><input id="margin" type="number" value="55" min="0" max="95" step=".5"><span class="unit">%</span></div>
+<div class="microcopy">Profit as a percentage of the final selling price.</div>
+</div>
+
+<div class="field">
+<label for="fee-rate">Selling / Payment Fee</label>
+<div class="input-wrap"><input id="fee-rate" type="number" value="0" min="0" max="40" step=".1"><span class="unit">%</span></div>
+<div class="microcopy">Enter the percentage taken from the selling price.</div>
+</div>
+
+<div class="field">
+<label for="fixed-fee">Fixed Fee per Sale</label>
+<div class="input-wrap input-money"><span class="money-prefix">$</span><input id="fixed-fee" type="number" value="0" min="0" step=".01"></div>
+<div class="microcopy">Optional listing, processing or per-order fee.</div>
+</div>
+
+<div class="field">
+<label for="shipping">Shipping You Absorb</label>
+<div class="input-wrap input-money"><span class="money-prefix">$</span><input id="shipping" type="number" value="0" min="0" step=".01"></div>
+<div class="microcopy">Leave at 0 if the customer pays shipping separately.</div>
+</div>
+
+<div class="field">
+<label for="wholesale-share">Wholesale Price as % of Retail</label>
+<div class="input-wrap"><input id="wholesale-share" type="number" value="50" min="1" max="100" step="1"><span class="unit">%</span></div>
+<div class="microcopy">Editable planning assumption, not a required industry rule.</div>
+</div>
+
+</div>
+
+<div class="preset-row">
+<button type="button" class="preset" data-margin="40">40% margin</button>
+<button type="button" class="preset" data-margin="50">50% margin</button>
+<button type="button" class="preset" data-margin="60">60% margin</button>
+<button type="button" class="preset" data-fee="0">No selling fee</button>
+<button type="button" class="preset" data-fee="10">10% fee</button>
+</div>
+
+<div class="calc-actions">
+<button class="btn btn-primary" type="submit">Calculate Price</button>
+<button class="btn btn-secondary" id="reset-btn" type="button">Reset</button>
+<button class="btn btn-secondary" id="copy-btn" type="button">Copy Results</button>
+</div>
+<div id="form-error" class="error" role="alert" aria-live="polite"></div>
+</form>
+</div>
+
+<div class="result-panel" aria-live="polite">
+<div class="result-kicker">Pricing target</div>
+<h2 class="panel-title">Your Results</h2>
+
+<div class="primary-result">
+<div class="eyebrow">Recommended Retail Price</div>
+<div class="big" id="retail-price">$14.44</div>
+<div class="sub">Price needed to preserve your selected margin</div>
+</div>
+
+<div class="result-row"><span class="result-label">Profit per Candle</span><span class="result-value" id="profit">$7.94</span></div>
+<div class="result-row"><span class="result-label">Effective Profit Margin</span><span class="result-value" id="effective-margin">55%</span></div>
+<div class="result-row"><span class="result-label">Equivalent Markup on Cost</span><span class="result-value" id="markup">122.2%</span></div>
+<div class="result-row"><span class="result-label">Estimated Selling Fees</span><span class="result-value" id="fees">$0.00</span></div>
+<div class="result-row"><span class="result-label">Wholesale Planning Price</span><span class="result-value" id="wholesale">$7.22</span></div>
+<div class="result-row"><span class="result-label">Wholesale Profit Before Channel Fees</span><span class="result-value" id="wholesale-profit">$0.72</span></div>
+
+<div class="breakdown">
+<h3>Price breakdown</h3>
+<div class="breakdown-line"><span>True unit cost</span><strong id="b-cost">$6.50</strong></div>
+<div class="breakdown-line"><span>Shipping absorbed</span><strong id="b-shipping">$0.00</strong></div>
+<div class="breakdown-line"><span>Fixed fee</span><strong id="b-fixed">$0.00</strong></div>
+<div class="breakdown-line"><span>Percentage fee</span><strong id="b-percent">$0.00</strong></div>
+<div class="breakdown-line"><span>Profit</span><strong id="b-profit">$7.94</strong></div>
+</div>
+
+<div class="recommendation" id="recommendation">At a <strong>55% target margin</strong> with no selling fees, a $6.50 candle needs a retail price of about <strong>$14.44</strong>.</div>
+<div class="warning"><strong>Pricing note:</strong> this is a planning estimate. Taxes, discounts, returns, channel-specific rules and your local market can change the price you ultimately choose.</div>
+</div>
+</section>
+
+<section class="content-card">
+<h2>How the Candle Pricing Formula Works</h2>
+<p>This calculator solves for the selling price rather than simply adding a margin percentage to your cost. That matters when fees are charged as a percentage of the final selling price.</p>
+<div class="formula">Price = (True Cost + Shipping Absorbed + Fixed Fee) ÷ (1 − Selling Fee % − Target Margin %)</div>
+<p>The formula only works when the combined fee rate and target margin are below 100%.</p>
+</section>
+
+<section class="content-card">
+<h2>Margin vs. Markup</h2>
+<p><strong>Markup</strong> compares profit with cost. <strong>Margin</strong> compares profit with the final selling price. They are not interchangeable.</p>
+<div class="formula">Markup % = Profit ÷ Cost × 100</div>
+<div class="formula">Margin % = Profit ÷ Selling Price × 100</div>
+<p>For example, a product that costs $10 and sells for $20 has a 100% markup but a 50% margin.</p>
+</section>
+
+<section class="content-card">
+<h2>Worked Candle Pricing Example</h2>
+<p>Suppose your true candle cost is $6.50 and you want a 55% margin with no selling fees or absorbed shipping:</p>
+<div class="formula">$6.50 ÷ (1 − 0.55) = $14.44</div>
+<p>The estimated profit is $7.94 per candle, which is 55% of the $14.44 selling price.</p>
+</section>
+
+<section class="content-card">
+<h2>When to Use the Candle Cost Calculator Instead</h2>
+<p>This pricing page assumes you already know your <strong>true unit cost</strong>. If you still need to calculate wax, fragrance, vessel, wick, packaging, labor and overhead, start with the <a href="/candle/candle-cost-calculator/" style="color:#4e3fe6;font-weight:800">Candle Cost Calculator</a>, then bring the resulting cost per candle back here.</p>
+</section>
+
+<section class="content-card">
+<h2>Frequently Asked Questions</h2>
+<details><summary>How do I price a handmade candle?</summary><p>Start with your complete cost per candle, choose a target profit margin, and account for selling fees or shipping costs you absorb. The calculator solves for a price that covers those inputs.</p></details>
+<details><summary>What is the difference between candle cost and candle price?</summary><p>Cost is what it takes to produce and sell the candle. Price is what the customer pays. The difference, after fees and other sale-specific costs, contributes to profit.</p></details>
+<details><summary>Should I use margin or markup?</summary><p>Either can be useful, but they measure different things. This calculator targets margin because margin directly shows what share of the final selling price remains as profit.</p></details>
+<details><summary>How do marketplace fees affect candle pricing?</summary><p>If a platform takes a percentage of the sale price, that fee must be included while solving for the price. Simply adding the fee percentage afterward can leave you below your intended margin.</p></details>
+<details><summary>Is wholesale always 50% of retail?</summary><p>No. The wholesale percentage here is editable and is included only as a planning comparison. Your actual wholesale pricing should reflect your costs, channel economics and agreements.</p></details>
+</section>
+
+<section class="content-card">
+<h2>Related Candle Calculators</h2>
+<div class="cards">
+<a class="card" href="/candle/candle-cost-calculator/"><span class="icon g">$</span><h3>Candle Cost Calculator</h3><p>Calculate true unit cost before setting your selling price.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-batch-calculator/"><span class="icon o">🕯</span><h3>Candle Batch Calculator</h3><p>Plan wax and fragrance for multiple candles.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-burn-time-calculator/"><span class="icon p">⏱</span><h3>Candle Burn Time Calculator</h3><p>Estimate total burn hours from measured burn rate.</p><span class="go">Calculate →</span></a>
+</div>
+</section>
+</div></main>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/quilting/">Sewing & Quilting</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About MakerEstimate</a></li><li><a href="/guides/">Guides</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div>
+</div><div class="copyright">© 2026 MakerEstimate. All rights reserved.</div></div></footer>
+<script src="/candle/candle-pricing-calculator/calculator.js"></script>
+</body></html>

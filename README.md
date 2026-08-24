@@ -42,3 +42,24 @@ Validation cases:
 Fixed the Test Duration field so values such as 4 hours are valid.
 The previous combination `min=.01` + `step=.25` made browsers treat 4 as a step mismatch.
 Forms now use the calculator's own validation messages.
+
+## V5: Candle Pricing Calculator
+URL:
+https://makerestimate.com/candle/candle-pricing-calculator/
+
+Validation cases:
+1. Cost $6.50, margin 55%, fee 0%, fixed $0, shipping $0
+   Expected retail: $14.44
+   Profit: $7.94
+   Effective margin: 55%
+2. Cost $10, margin 50%, fee 10%, fixed $0, shipping $0
+   Price = $25.00
+   Percentage fee = $2.50
+   Profit = $12.50
+3. Cost $8, margin 40%, fee 8%, fixed $0.30, shipping $2
+   Price = $19.81 (rounded)
+
+## Complete V5 synchronization
+Homepage, Candle category, All Calculators, and sitemap are synchronized with:
+- Candle Burn Time Calculator
+- Candle Pricing Calculator
