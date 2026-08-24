@@ -1,26 +1,166 @@
-<!doctype html><html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Candle Fragrance Calculator | MakerEstimate</title><meta name="description" content="Calculate exactly how much fragrance oil to add based on your wax weight and fragrance load.">
+<title>Candle Fragrance Calculator – Fragrance Oil by Wax Weight | MakerEstimate</title>
+<meta name="description" content="Calculate fragrance oil for candles from wax weight and fragrance load. Supports ounces and grams with batch scaling, examples, formulas and FAQs.">
 <link rel="canonical" href="https://makerestimate.com/candle/candle-fragrance-calculator/">
-<meta property="og:title" content="Candle Fragrance Calculator | MakerEstimate"><meta property="og:description" content="Calculate exactly how much fragrance oil to add based on your wax weight and fragrance load.">
+<meta property="og:title" content="Candle Fragrance Calculator – Fragrance Oil by Wax Weight | MakerEstimate">
+<meta property="og:description" content="Calculate fragrance oil from wax weight, fragrance load and batch quantity.">
 <meta property="og:url" content="https://makerestimate.com/candle/candle-fragrance-calculator/">
-<link rel="stylesheet" href="/assets/css/style.css?v=9.2"></head><body><header class="site-header"><div class="container nav">
+<link rel="stylesheet" href="/assets/css/style.css?v=9.2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Candle Fragrance Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://makerestimate.com/candle/candle-fragrance-calculator/","description":"Calculate fragrance oil for candles from wax weight, fragrance load and batch quantity."}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container nav">
 <a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a>
 <nav class="nav-links"><a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a></nav>
 <div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
-</div></header><main><div class="container">
+</div></header>
+
+<main><div class="container">
 <nav class="breadcrumbs"><a href="/">Home</a> › <a href="/candle/">Candle Calculators</a> › Candle Fragrance Calculator</nav>
-<section class="page-hero"><h1>Candle Fragrance Calculator</h1><p>Calculate exactly how much fragrance oil to add based on your wax weight and fragrance load.</p><div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ No signup required</span></div></section>
-<section class="calculator-shell"><div class="calc-panel"><div class="panel-heading"><h2 class="panel-title">Calculator</h2></div><p class="panel-sub">Enter wax weight, choose the unit, and set the fragrance load.</p><form id="fr-form"><div class="field-grid">
-<div class="field"><label>Wax Weight</label><input id="wax-weight" type="number" value="16"></div>
-<div class="field"><label>Weight Unit</label><select id="unit"><option value="oz">Ounces (oz)</option><option value="g">Grams (g)</option></select></div>
-<div class="field"><label>Fragrance Load</label><div class="input-wrap"><input id="fragrance-load" type="number" value="8"><span class="unit">%</span></div></div>
-<div class="field"><label>Number of Batches</label><input id="batch-count" type="number" value="1"></div></div>
-<div class="calc-actions"><button class="btn btn-primary">Calculate Fragrance</button></div><div id="form-error" class="error"></div></form></div>
-<div class="result-panel"><h2 class="panel-title">Your Results</h2><div class="primary-result"><div class="eyebrow">Fragrance Oil Needed</div><div class="big" id="fr-result">1.28 oz</div></div>
-<div class="result-row"><span class="result-label">Total Wax</span><span id="wax-total" class="result-value">16 oz</span></div>
-<div class="result-row"><span class="result-label">Finished Batch Weight</span><span id="finished" class="result-value">17.28 oz</span></div><div id="recommendation" class="recommendation"></div></div></section><section class='content-card'><h2>Formula</h2><div class='formula'>Fragrance Oil = Wax Weight × (Fragrance Load ÷ 100)</div></section>
-<section class="content-card"><h2>Batch Planning</h2><p>Scaling your fragrance recipe for multiple candles? Try our <a href="/candle/candle-batch-calculator/"><strong>Candle Batch Calculator</strong></a>.</p></section></div></main><footer class="site-footer">
+
+<section class="page-hero">
+<h1>Candle Fragrance Calculator</h1>
+<p>Calculate how much fragrance oil to add from your wax weight and fragrance load. Scale a single recipe or a full candle batch in ounces or grams.</p>
+<div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ oz & g support</span></div>
+</section>
+
+<section class="calculator-shell">
+<div class="calc-panel">
+<h2 class="panel-title">Fragrance Oil Calculator</h2>
+<p class="panel-sub">Enter your wax weight, choose a unit, set the fragrance load, and optionally scale the recipe across multiple batches.</p>
+
+<form id="fragrance-form" novalidate>
+<div class="field-grid">
+<div class="field">
+<label for="wax-weight">Wax Weight</label>
+<input id="wax-weight" type="number" value="16" min=".01" step=".01">
+<div class="microcopy">Use the actual wax weight before fragrance is added.</div>
+</div>
+
+<div class="field">
+<label for="weight-unit">Weight Unit</label>
+<select id="weight-unit">
+<option value="oz" selected>Ounces (oz)</option>
+<option value="g">Grams (g)</option>
+</select>
+</div>
+
+<div class="field">
+<label for="fragrance-load">Fragrance Load</label>
+<div class="input-wrap"><input id="fragrance-load" type="number" value="8" min="0" max="30" step=".1"><span class="unit">%</span></div>
+<div class="microcopy">Follow your wax supplier's recommended maximum.</div>
+</div>
+
+<div class="field">
+<label for="batches">Number of Batches</label>
+<input id="batches" type="number" value="1" min="1" step="1">
+<div class="microcopy">Use 1 for a single recipe.</div>
+</div>
+
+<div class="inline-note">
+<strong>Important:</strong> this calculator treats fragrance load as a percentage of wax weight. Supplier instructions can differ, so use the convention specified for your wax and fragrance system.
+</div>
+</div>
+
+<div class="calc-actions">
+<button class="btn btn-primary" type="submit">Calculate Fragrance</button>
+<button class="btn btn-secondary" id="reset-btn" type="button">Reset</button>
+<button class="btn btn-secondary" id="copy-btn" type="button">Copy Results</button>
+</div>
+<div id="form-error" class="error" role="alert" aria-live="polite"></div>
+</form>
+</div>
+
+<div class="result-panel" aria-live="polite">
+<div class="result-kicker">Fragrance estimate</div>
+<h2 class="panel-title">Your Results</h2>
+
+<div class="primary-result">
+<div class="eyebrow">Fragrance Oil Needed</div>
+<div class="big" id="fragrance-result">1.28 oz</div>
+<div class="sub">Based on wax weight × fragrance load</div>
+</div>
+
+<div class="result-row"><span class="result-label">Wax Weight</span><span class="result-value" id="wax-result">16 oz</span></div>
+<div class="result-row"><span class="result-label">Total Finished Weight</span><span class="result-value" id="finished-result">17.28 oz</span></div>
+<div class="result-row"><span class="result-label">Fragrance per Batch</span><span class="result-value" id="per-batch-result">1.28 oz</span></div>
+<div class="result-row"><span class="result-label">Total Fragrance for All Batches</span><span class="result-value" id="all-batches-result">1.28 oz</span></div>
+
+<div class="recommendation" id="recommendation">Add about <strong>1.28 oz of fragrance oil</strong> to 16 oz of wax at an 8% fragrance load.</div>
+</div>
+</section>
+
+<section class="content-card">
+<h2>How the Candle Fragrance Calculator Works</h2>
+<p>Fragrance load is commonly calculated as a percentage of wax weight. The calculator multiplies your wax weight by the selected fragrance-load percentage, then scales the result if you are making multiple identical batches.</p>
+<div class="formula">Fragrance Oil = Wax Weight × (Fragrance Load ÷ 100)</div>
+<div class="formula">Finished Weight = Wax Weight + Fragrance Oil</div>
+<div class="formula">Total Fragrance for Multiple Batches = Fragrance per Batch × Number of Batches</div>
+</section>
+
+<section class="content-card">
+<h2>Example: How Much Fragrance Oil for 16 oz of Wax?</h2>
+<p>Suppose you have 16 oz of wax and want an 8% fragrance load:</p>
+<div class="formula">16 oz × 0.08 = 1.28 oz fragrance oil</div>
+<p>Your finished wax-plus-fragrance mixture would weigh about <strong>17.28 oz</strong>.</p>
+</section>
+
+<section class="content-card">
+<h2>Quick Fragrance Oil Reference</h2>
+<p>These examples use fragrance load as a percentage of wax weight.</p>
+<table>
+<thead><tr><th>Wax Weight</th><th>6% Load</th><th>8% Load</th><th>10% Load</th></tr></thead>
+<tbody>
+<tr><td>8 oz</td><td>0.48 oz</td><td>0.64 oz</td><td>0.80 oz</td></tr>
+<tr><td>16 oz</td><td>0.96 oz</td><td>1.28 oz</td><td>1.60 oz</td></tr>
+<tr><td>32 oz</td><td>1.92 oz</td><td>2.56 oz</td><td>3.20 oz</td></tr>
+<tr><td>64 oz</td><td>3.84 oz</td><td>5.12 oz</td><td>6.40 oz</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="content-card">
+<h2>Fragrance Load vs. Fragrance Percentage of Total Batch</h2>
+<p>These two conventions are not the same. This page uses fragrance load as a percentage of wax weight. If your supplier defines fragrance as a percentage of the finished batch, use that supplier's method instead. Do not mix the two formulas.</p>
+</section>
+
+<section class="content-card">
+<h2>How Much Fragrance Oil Should You Use?</h2>
+<p>The right fragrance load depends on the wax, fragrance oil, wick system and supplier guidance. Higher fragrance percentages do not automatically produce a better candle. Too much fragrance can affect burn performance, adhesion, cure behavior or stability.</p>
+</section>
+
+<section class="content-card">
+<h2>Ounces vs. Grams</h2>
+<p>You can calculate in either ounces or grams. Keep all inputs in the same unit and the result will remain in that unit. For production work, using a digital scale is more reliable than measuring fragrance by liquid volume.</p>
+</section>
+
+<section class="content-card">
+<h2>Frequently Asked Questions</h2>
+<details><summary>How much fragrance oil do I need for 1 lb of wax?</summary><p>One pound is 16 oz. At an 8% fragrance load, 16 oz × 0.08 = 1.28 oz of fragrance oil.</p></details>
+<details><summary>How much fragrance oil for 8 oz of wax?</summary><p>At an 8% load, 8 oz of wax uses 0.64 oz of fragrance oil. At 10%, it uses 0.80 oz.</p></details>
+<details><summary>Is fragrance load based on wax weight?</summary><p>Often yes, but not always. This calculator uses wax-weight basis. Always follow the method specified by your wax supplier.</p></details>
+<details><summary>Can I calculate fragrance oil in grams?</summary><p>Yes. Select grams, enter your wax weight, and the calculator will return fragrance and finished weight in grams.</p></details>
+<details><summary>Does more fragrance always mean a stronger candle?</summary><p>No. Scent performance depends on wax, fragrance chemistry, cure, wick and formulation. Exceeding the wax manufacturer's limit can create performance problems.</p></details>
+<details><summary>Should fragrance oil be measured by weight or volume?</summary><p>For repeatable candle production, fragrance oil is usually more reliable when measured by weight on a digital scale.</p></details>
+</section>
+
+<section class="content-card">
+<h2>Related Candle Calculators</h2>
+<div class="cards">
+<a class="card" href="/candle/candle-wax-calculator/"><span class="icon o">W</span><h3>Candle Wax Calculator</h3><p>Calculate wax and fragrance for a candle batch.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-batch-calculator/"><span class="icon o">B</span><h3>Candle Batch Calculator</h3><p>Scale wax and fragrance across multiple candles.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-jar-fill-calculator/"><span class="icon o">J</span><h3>Candle Jar Fill Calculator</h3><p>Estimate fill weight from jar volume.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/candle/candle-wick-size-calculator/"><span class="icon p">W</span><h3>Candle Wick Size Calculator</h3><p>Find a practical wick testing range for your vessel.</p><span class="go">Calculate →</span></a>
+</div>
+</section>
+</div></main>
+
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
@@ -32,39 +172,24 @@
       </div>
       <div>
         <h4>Calculators</h4>
-        <ul>
-          <li><a href="/calculators/">All Calculators</a></li>
-          <li><a href="/candle/">Candle</a></li>
-          <li><a href="/quilting/">Quilting</a></li>
-        </ul>
+        <ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li></ul>
       </div>
       <div>
         <h4>Categories</h4>
-        <ul>
-          <li><a href="/candle/">Candle Calculators</a></li>
-          <li><a href="/food/">Food & Recipe</a></li>
-          <li><a href="/quilting/">Sewing & Quilting</a></li>
-          <li><a href="/3d-printing/">3D Printing</a></li>
-        </ul>
+        <ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/food/">Food & Recipe</a></li><li><a href="/quilting/">Sewing & Quilting</a></li><li><a href="/3d-printing/">3D Printing</a></li></ul>
       </div>
       <div>
         <h4>About</h4>
-        <ul>
-          <li><a href="/about/">About MakerEstimate</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/contact/">Contact Us</a></li>
-        </ul>
+        <ul><li><a href="/about/">About MakerEstimate</a></li><li><a href="/guides/">Guides</a></li><li><a href="/contact/">Contact Us</a></li></ul>
       </div>
       <div>
         <h4>Legal</h4>
-        <ul>
-          <li><a href="/privacy/">Privacy</a></li>
-          <li><a href="/terms/">Terms</a></li>
-          <li><a href="/disclaimer/">Disclaimer</a></li>
-          <li><a href="/sitemap.xml">Sitemap</a></li>
-        </ul>
+        <ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
       </div>
     </div>
     <div class="copyright">© 2026 MakerEstimate. All rights reserved.</div>
   </div>
-</footer><script src="/candle/candle-fragrance-calculator/calculator.js"></script></body></html>
+</footer>
+
+<script src="/candle/candle-fragrance-calculator/calculator.js"></script>
+</body></html>

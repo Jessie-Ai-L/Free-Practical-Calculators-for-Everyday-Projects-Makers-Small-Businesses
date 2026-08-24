@@ -103,3 +103,10 @@ V9.1 fixes the actual HTML structure with a direct-child anchor CSS rule and add
 All HTML pages now use the exact same footer markup, not just CSS overrides.
 This removes the structural difference between older direct-anchor footers and newer UL/LI footers.
 The shared stylesheet is cache-busted as `style.css?v=9.2`.
+
+
+## V11 Candle Fragrance Calculator SEO Upgrade
+- Expanded Candle Fragrance Calculator into a full SEO utility page.
+- Added oz/g support, multiple-batch scaling, reset and copy.
+- Added formulas, 16 oz worked example, reference table, fragrance-load explanation, FAQs and related calculators.
+- URL and canonical remain unchanged.
