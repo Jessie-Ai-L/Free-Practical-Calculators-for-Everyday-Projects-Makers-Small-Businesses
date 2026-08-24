@@ -97,3 +97,9 @@ Changes:
 ## V9.1 definitive footer fix
 The V9 footer patch targeted `li` elements, but several calculator pages use direct `<a>` elements inside each footer column.
 V9.1 fixes the actual HTML structure with a direct-child anchor CSS rule and adds `?v=9.1` to the shared stylesheet URL to avoid stale browser/CDN CSS.
+
+
+## V9.2 unified footer
+All HTML pages now use the exact same footer markup, not just CSS overrides.
+This removes the structural difference between older direct-anchor footers and newer UL/LI footers.
+The shared stylesheet is cache-busted as `style.css?v=9.2`.
