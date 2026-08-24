@@ -1,8 +1,11 @@
-
-const f=document.getElementById('wax-form'),E=document.getElementById('form-error');
-function n(x,p=2){return Number(x.toFixed(p)).toString()}
-function calc(){const fill=+document.getElementById('fill-weight').value,count=+document.getElementById('candle-count').value,load=+document.getElementById('fragrance-load').value,extra=+document.getElementById('extra-wax').value;
-if(fill<=0||count<=0||load<0||extra<0){E.textContent='Please check your inputs.';return}
-E.textContent='';const base=fill*count,wax=base*(1+extra/100),fr=wax*(load/100),batch=wax+fr;
-document.getElementById('wax-purchase-result').textContent=n(wax)+' oz';document.getElementById('wax-result').textContent=n(base)+' oz';document.getElementById('fragrance-result').textContent=n(fr)+' oz';document.getElementById('batch-result').textContent=n(batch)+' oz';document.getElementById('recommendation').innerHTML=`Prepare about <strong>${n(wax)} oz of wax</strong> and <strong>${n(fr)} oz of fragrance oil</strong>.`;}
-f.addEventListener('submit',e=>{e.preventDefault();calc()});[...f.querySelectorAll('input')].forEach(x=>x.addEventListener('input',calc));calc();
+const form=document.getElementById('wax-form');
+const error=document.getElementById('form-error');
+const defaults={fill:8,unit:'oz',count:12,load:8,extra:3};
+function fmt(value){return Number(value.toFixed(2)).toLocaleString(undefined,{maximumFractionDigits:2});}
+function values(){return {fill:+document.getElementById('fill-weight').value,unit:document.getElementById('weight-unit').value,count:+document.getElementById('candle-count').value,load:+document.getElementById('fragrance-load').value,extra:+document.getElementById('extra-wax').value};}
+function calc(){const v=values();if(!Number.isFinite(v.fill)||v.fill<=0||!Number.isInteger(v.count)||v.count<=0||!Number.isFinite(v.load)||v.load<0||v.load>30||!Number.isFinite(v.extra)||v.extra<0||v.extra>30){error.textContent='Please enter valid positive values. Candle count must be a whole number, and percentages must be between 0% and 30%.';return null;}error.textContent='';const base=v.fill*v.count,wax=base*(1+v.extra/100),fr=wax*(v.load/100),batch=wax+fr,u=v.unit;document.getElementById('wax-purchase-result').textContent=`${fmt(wax)} ${u}`;document.getElementById('wax-result').textContent=`${fmt(base)} ${u}`;document.getElementById('fragrance-result').textContent=`${fmt(fr)} ${u}`;document.getElementById('batch-result').textContent=`${fmt(batch)} ${u}`;document.getElementById('recommendation').innerHTML=`Prepare about <strong>${fmt(wax)} ${u} of wax</strong> and <strong>${fmt(fr)} ${u} of fragrance oil</strong> for ${v.count} candle${v.count===1?'':'s'}.`;return {v,base,wax,fr,batch};}
+form.addEventListener('submit',e=>{e.preventDefault();calc();});
+form.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',calc));
+document.getElementById('reset-btn').addEventListener('click',()=>{document.getElementById('fill-weight').value=defaults.fill;document.getElementById('weight-unit').value=defaults.unit;document.getElementById('candle-count').value=defaults.count;document.getElementById('fragrance-load').value=defaults.load;document.getElementById('extra-wax').value=defaults.extra;calc();});
+document.getElementById('copy-btn').addEventListener('click',async()=>{const r=calc();if(!r)return;const u=r.v.unit,text=`Candle Wax Calculator — ${r.v.count} candles\nWax to prepare: ${fmt(r.wax)} ${u}\nFragrance oil: ${fmt(r.fr)} ${u}\nEstimated batch weight: ${fmt(r.batch)} ${u}`;try{await navigator.clipboard.writeText(text);document.getElementById('copy-btn').textContent='Copied!';setTimeout(()=>document.getElementById('copy-btn').textContent='Copy Results',1200);}catch(e){error.textContent='Copy was blocked by your browser. You can select the results manually.';}});
+calc();
