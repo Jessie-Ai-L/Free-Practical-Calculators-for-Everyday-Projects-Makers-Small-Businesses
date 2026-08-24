@@ -79,3 +79,6 @@ Expected approximately:
 - Total batch: 87.63 oz
 
 Sitemap should now contain 22 URLs.
+
+
+V7: Added Candle Wick Size Calculator at /candle/candle-wick-size-calculator/, plus homepage, calculators, candle category and sitemap links. Recommendations are burn-test starting ranges, not guarantees.
