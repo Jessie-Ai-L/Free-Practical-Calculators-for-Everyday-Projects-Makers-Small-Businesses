@@ -1,7 +1,8 @@
-# MakerEstimate Production V2
-Upload the CONTENTS of this folder to the ROOT of your GitHub repository.
+# MakerEstimate Production V3
 
-Important:
-- Keep GitHub Pages Custom Domain: makerestimate.com
-- This package uses root-relative paths for the custom domain.
-- Correct Quilt Binding URL: /quilting/quilt-binding-calculator/
+Adds Candle Batch Calculator and updates internal links plus sitemap.
+
+Upload the CONTENTS of this folder to your GitHub repository root.
+
+New URL:
+https://makerestimate.com/candle/candle-batch-calculator/
