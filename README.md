@@ -37,3 +37,8 @@ Validation cases:
    - estimated burn time 30 hours
 3. Quick Estimate: usable wax 12 oz, burn rate 0.30 oz/hr
    - estimated burn time 40 hours
+
+## Validation fix
+Fixed the Test Duration field so values such as 4 hours are valid.
+The previous combination `min=.01` + `step=.25` made browsers treat 4 as a step mismatch.
+Forms now use the calculator's own validation messages.

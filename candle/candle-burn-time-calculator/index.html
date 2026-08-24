@@ -46,11 +46,11 @@
 
 <div class="mode-pane" id="test-pane">
 <p class="panel-sub">Use measured weight loss from a controlled burn test to calculate your candle's burn rate.</p>
-<form id="test-form">
+<form id="test-form" novalidate>
 <div class="field-grid">
 <div class="field"><label>Starting Candle Weight</label><div class="input-wrap"><input id="start-weight" type="number" value="16" min=".01" step=".01"><span class="unit unit-label">oz</span></div><div class="helper">Candle weight immediately before the test.</div></div>
 <div class="field"><label>Ending Candle Weight</label><div class="input-wrap"><input id="end-weight" type="number" value="15" min="0" step=".01"><span class="unit unit-label">oz</span></div><div class="helper">Candle weight immediately after the test.</div></div>
-<div class="field"><label>Test Duration</label><div class="input-wrap"><input id="test-hours" type="number" value="4" min=".01" step=".25"><span class="unit">hours</span></div></div>
+<div class="field"><label>Test Duration</label><div class="input-wrap"><input id="test-hours" type="number" value="4" min=".25" step=".25"><span class="unit">hours</span></div></div>
 <div class="field"><label>Usable Wax Weight</label><div class="input-wrap"><input id="usable-weight" type="number" value="8" min=".01" step=".01"><span class="unit unit-label">oz</span></div><div class="helper">Wax expected to be consumed over the candle's usable life.</div></div>
 <div class="field"><label>Weight Unit</label><select id="test-unit"><option value="oz">Ounces (oz)</option><option value="g">Grams (g)</option></select></div>
 </div>
@@ -61,7 +61,7 @@
 
 <div class="mode-pane" id="quick-pane" hidden>
 <p class="panel-sub">For planning only. Choose a measured or assumed burn rate rather than relying on wax type alone.</p>
-<form id="quick-form">
+<form id="quick-form" novalidate>
 <div class="field-grid">
 <div class="field"><label>Usable Wax Weight</label><div class="input-wrap"><input id="quick-wax" type="number" value="8" min=".01" step=".01"><span class="unit quick-unit-label">oz</span></div></div>
 <div class="field"><label>Estimated Burn Rate</label><div class="input-wrap"><input id="quick-rate" type="number" value=".25" min=".001" step=".01"><span class="unit" id="rate-unit">oz/hr</span></div><div class="helper">Use a prior test, supplier guidance, or a conservative planning assumption.</div></div>
