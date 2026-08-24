@@ -92,3 +92,8 @@ Changes:
 - Automated QA scan for page titles, meta descriptions, H1s, canonicals, internal links and sitemap targets.
 - Legacy DayKit normalization.
 - See `QA-REPORT.md` for the scan summary.
+
+
+## V9.1 definitive footer fix
+The V9 footer patch targeted `li` elements, but several calculator pages use direct `<a>` elements inside each footer column.
+V9.1 fixes the actual HTML structure with a direct-child anchor CSS rule and adds `?v=9.1` to the shared stylesheet URL to avoid stale browser/CDN CSS.

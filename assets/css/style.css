@@ -47,3 +47,20 @@ main{padding:30px 0 64px}.breadcrumbs{font-size:12px;color:#7d8293;margin-bottom
     grid-column:1 / -1;
   }
 }
+
+
+/* V9.1 definitive footer link layout fix */
+.site-footer .footer-grid > div:not(:first-child) > a{
+  display:block !important;
+  margin:7px 0 !important;
+  line-height:1.45 !important;
+  white-space:normal !important;
+}
+.site-footer .footer-grid > div:not(:first-child) > h4{
+  display:block;
+  margin:0 0 10px !important;
+}
+.site-footer .footer-grid > div:first-child > .brand{
+  display:inline-flex !important;
+  margin:0 !important;
+}
