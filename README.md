@@ -121,3 +121,9 @@ The upgraded HTML reused the same `calculator.js` URL as the older version, so b
 - Compares vertical and horizontal layouts.
 - Supports inches/cm, 42/44/108 presets, Auto layout, reset and copy.
 - Added sitemap entry and internal discovery cards where supported.
+
+
+## V14 Quilt Border Calculator
+- Added /quilting/quilt-border-calculator/
+- Supports 1–4 sequential borders, inches/cm, WOF presets, butted/mitered corners, reset and copy.
+- Added discovery links and sitemap entry.

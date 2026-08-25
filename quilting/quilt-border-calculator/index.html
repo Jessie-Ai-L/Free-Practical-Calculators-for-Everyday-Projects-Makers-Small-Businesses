@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quilt Border Calculator – Fabric Yardage, Strips & Cut Width | MakerEstimate</title>
+<meta name="description" content="Calculate quilt border fabric yardage, WOF strip count, cut width and finished quilt size. Add up to four borders and compare butted or mitered corners.">
+<link rel="canonical" href="https://makerestimate.com/quilting/quilt-border-calculator/">
+<meta property="og:title" content="Quilt Border Calculator – Yardage, Strips & Cut Width">
+<meta property="og:description" content="Plan single or multiple quilt borders with fabric yardage, strip counts, cut widths and finished dimensions.">
+<meta property="og:url" content="https://makerestimate.com/quilting/quilt-border-calculator/">
+<link rel="stylesheet" href="/assets/css/style.css?v=9.2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Quilt Border Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://makerestimate.com/quilting/quilt-border-calculator/","description":"Calculate quilt border yardage, WOF strips, cut width and finished quilt size for one to four borders."}
+</script>
+<style>
+.border-row{border:1px solid #e2e4ed;border-radius:12px;padding:14px;margin-top:12px;background:#fff}
+.border-row-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.border-row-head h3{margin:0;font-size:15px}
+.remove-border{border:0;background:transparent;color:#6d6f7d;font-weight:800;cursor:pointer}
+.preset-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.preset-btn{border:1px solid #dedfea;background:#fff;border-radius:999px;padding:7px 10px;font:inherit;font-size:12px;font-weight:800;color:#565b6d;cursor:pointer}
+.preset-btn:hover{border-color:#bcb5ff;color:#5544e8}
+.add-border{margin-top:12px}
+.result-border{border:1px solid #e2e4ed;border-radius:12px;padding:14px;margin-top:12px;background:#fff}
+.result-border h3{margin:0 0 8px;font-size:14px}
+.result-border-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mini-result{background:#f8f8fc;border-radius:9px;padding:10px}
+.mini-result span{display:block;font-size:10px;text-transform:uppercase;color:#74798b;font-weight:800}
+.mini-result strong{display:block;margin-top:3px;font-size:14px}
+.cut-plan{margin-top:14px;padding:14px;border-radius:12px;background:#f7f7fb;white-space:pre-line}
+@media(max-width:620px){.result-border-grid{grid-template-columns:1fr}.border-row-head{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a>
+<nav class="nav-links"><a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a></nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header>
+
+<main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/quilting/">Sewing & Quilting</a> › Quilt Border Calculator</nav>
+<section class="page-hero">
+<h1>Quilt Border Calculator</h1>
+<p>Calculate border fabric yardage, WOF strip count, cut width and finished quilt size. Plan one border or build a multi-border layout.</p>
+<div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ Up to 4 borders</span></div>
+</section>
+
+<section class="calculator-shell">
+<div class="calc-panel">
+<h2 class="panel-title">Border Fabric Calculator</h2>
+<p class="panel-sub">Start with the quilt-top dimensions before borders are added.</p>
+<form id="border-form" novalidate>
+<div class="field-grid">
+<div class="field"><label for="quilt-width">Quilt Top Width</label><input id="quilt-width" type="number" value="60" min="1" step=".1"></div>
+<div class="field"><label for="quilt-length">Quilt Top Length</label><input id="quilt-length" type="number" value="80" min="1" step=".1"></div>
+<div class="field"><label for="unit">Measurement Unit</label><select id="unit"><option value="in" selected>Inches</option><option value="cm">Centimeters</option></select></div>
+<div class="field"><label for="fabric-width">Usable Fabric Width (WOF)</label><input id="fabric-width" type="number" value="42" min="1" step=".1">
+<div class="preset-row"><button type="button" class="preset-btn" data-width="42">42"</button><button type="button" class="preset-btn" data-width="44">44"</button><button type="button" class="preset-btn" data-width="45">45"</button></div></div>
+<div class="field"><label for="seam">Seam Allowance</label><input id="seam" type="number" value="0.25" min="0" step=".125"><div class="microcopy">¼" is common for quilt construction.</div></div>
+<div class="field"><label for="corner">Corner Style</label><select id="corner"><option value="butted" selected>Butted / Straight</option><option value="mitered">Mitered</option></select></div>
+</div>
+
+<div id="border-inputs"></div>
+<button type="button" id="add-border" class="btn btn-secondary add-border">+ Add Another Border</button>
+<div class="inline-note"><strong>Planning note:</strong> border measurements should be based on the quilt's measured center dimensions when possible, rather than simply sewing an unstretched strip along an outer edge.</div>
+<div class="calc-actions"><button class="btn btn-primary" type="submit">Calculate Borders</button><button class="btn btn-secondary" id="reset-btn" type="button">Reset</button><button class="btn btn-secondary" id="copy-btn" type="button">Copy Results</button></div>
+<div id="form-error" class="error" role="alert" aria-live="polite"></div>
+</form>
+</div>
+
+<div class="result-panel" aria-live="polite">
+<div class="result-kicker">Border estimate</div><h2 class="panel-title">Your Results</h2>
+<div class="primary-result"><div class="eyebrow">TOTAL BORDER FABRIC</div><div class="big" id="total-yardage">1.5 yd</div><div class="sub" id="corner-result">Butted / straight corners</div></div>
+<div class="result-row"><span class="result-label">Starting Quilt Size</span><span class="result-value" id="start-size">60 × 80 in</span></div>
+<div class="result-row"><span class="result-label">Finished Quilt Size</span><span class="result-value" id="finished-size">64 × 84 in</span></div>
+<div class="result-row"><span class="result-label">Total WOF Strips</span><span class="result-value" id="total-strips">8</span></div>
+<div id="border-results"></div>
+<div class="cut-plan" id="cut-plan"></div>
+</div>
+</section>
+
+<section class="content-card">
+<h2>How the Quilt Border Calculator Works</h2>
+<p>Each border is calculated in sequence. A border's finished width increases the quilt dimensions before the next border is calculated, so multi-border layouts cannot be estimated accurately by simply multiplying the first border.</p>
+<div class="formula">Cut Width = Finished Border Width + (2 × Seam Allowance)</div>
+<div class="formula">New Quilt Width = Current Width + (2 × Finished Border Width)</div>
+<div class="formula">New Quilt Length = Current Length + (2 × Finished Border Width)</div>
+</section>
+
+<section class="content-card">
+<h2>Finished Width vs. Cut Width</h2>
+<p>The finished border width is what remains visible after sewing. The strip must be cut wider to include seam allowances on both long edges. With a 2-inch finished border and ¼-inch seam allowance, the cut width is 2½ inches.</p>
+</section>
+
+<section class="content-card">
+<h2>Single vs. Multiple Quilt Borders</h2>
+<p>For multiple borders, calculate from the quilt outward. Border 1 changes the quilt size, Border 2 is measured against that larger size, and each later border continues the same process. This calculator handles that sequence automatically for up to four borders.</p>
+</section>
+
+<section class="content-card">
+<h2>Butted vs. Mitered Quilt Borders</h2>
+<p>Butted borders use side strips and top/bottom strips joined with square corners. Mitered borders require additional strip length so adjacent borders can meet diagonally at each corner. The mitered option includes extra length based on border cut width.</p>
+</section>
+
+<section class="content-card">
+<h2>How Many WOF Strips Do I Need?</h2>
+<p>WOF means width of fabric. The calculator estimates the total linear border length, divides it by your usable WOF, and rounds up to whole strips. It then converts strip count × cut width into purchase yardage, rounded up to the nearest ¼ yard or 0.1 meter.</p>
+</section>
+
+<section class="content-card">
+<h2>Worked Example: 60 × 80 Inch Quilt</h2>
+<p>For a 60 × 80-inch quilt with one 2-inch finished border, ¼-inch seam allowances and 42-inch usable fabric, the cut strips are 2½ inches wide. After the border is added, the quilt finishes at approximately 64 × 84 inches before binding.</p>
+</section>
+
+<section class="content-card">
+<h2>How to Measure a Quilt Before Adding Borders</h2>
+<p>Measure through the center of the quilt in the direction needed for each border rather than relying only on the outer edge, which may have stretched. Use the measurements and construction method appropriate to your pattern and quilting workflow.</p>
+</section>
+
+<section class="content-card">
+<h2>Frequently Asked Questions</h2>
+<details><summary>How much fabric do I need for quilt borders?</summary><p>It depends on quilt size, border width, usable fabric width, corner style and the number of borders. Enter those values above to estimate strips and purchase yardage.</p></details>
+<details><summary>How wide should I cut a 2-inch finished quilt border?</summary><p>With ¼-inch seam allowances on both long edges, cut the strip 2½ inches wide.</p></details>
+<details><summary>Do I calculate each border separately?</summary><p>Yes. Each border changes the quilt dimensions. The calculator automatically carries the enlarged dimensions into the next border.</p></details>
+<details><summary>What does WOF mean in quilting?</summary><p>WOF means width of fabric, typically measured from selvage to selvage. Use the actual usable width after any trimming you expect to do.</p></details>
+<details><summary>Does a mitered border need more fabric?</summary><p>Usually yes, because each strip needs additional length at the corners to form the diagonal miter.</p></details>
+</section>
+
+<section class="content-card"><h2>Related Quilting Calculators</h2><div class="cards">
+<a class="card" href="/quilting/quilt-backing-calculator/"><span class="icon p">B</span><h3>Quilt Backing Calculator</h3><p>Calculate backing yardage, panels and cutting plans.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/quilting/quilt-binding-calculator/"><span class="icon o">B</span><h3>Quilt Binding Calculator</h3><p>Estimate binding strips and fabric yardage.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/quilting/"><span class="icon p">Q</span><h3>Sewing & Quilting Calculators</h3><p>Explore the MakerEstimate quilting tool collection.</p><span class="go">Explore →</span></a>
+</div></section>
+</div></main>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/food/">Food & Recipe</a></li><li><a href="/quilting/">Sewing & Quilting</a></li><li><a href="/3d-printing/">3D Printing</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About MakerEstimate</a></li><li><a href="/guides/">Guides</a></li><li><a href="/contact/">Contact Us</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
+</div><div class="copyright">© 2026 MakerEstimate. All rights reserved.</div></div></footer>
+<script src="/quilting/quilt-border-calculator/calculator.js?v=14.0"></script>
+</body></html>
