@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quilt Size Calculator - Quilt Dimensions Chart & Size Guide | MakerEstimate</title>
+<meta name="description" content="Calculate quilt sizes for baby, crib, throw, twin, full, queen and king quilts. Compare quilt dimensions in inches and centimeters.">
+<link rel="canonical" href="https://makerestimate.com/quilting/quilt-size-calculator/">
+<link rel="stylesheet" href="/assets/css/style.css?v=9.2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Quilt Size Calculator","applicationCategory":"UtilitiesApplication","url":"https://makerestimate.com/quilting/quilt-size-calculator/"}
+</script>
+<style>
+.size-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.size-btn{border:1px solid #ddd;border-radius:12px;background:#fff;padding:12px;text-align:left;cursor:pointer}
+.size-btn strong{display:block}
+@media(max-width:800px){.size-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a>
+<nav class="nav-links"><a href="/calculators/">Calculators</a><a href="/quilting/">Quilting</a></nav>
+</div></header>
+<main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/quilting/">Sewing & Quilting</a> › Quilt Size Calculator</nav>
+<section class="page-hero">
+<h1>Quilt Size Calculator</h1>
+<p>Calculate common quilt dimensions for baby, crib, throw, twin, full, queen and king quilts.</p>
+</section>
+<section class="calculator-shell">
+<div class="calc-panel">
+<h2 class="panel-title">Quilt Size Planner</h2>
+<div class="field"><label for="type">Quilt Type</label>
+<select id="type">
+<option value="baby">Baby Quilt</option>
+<option value="crib">Crib Quilt</option>
+<option value="throw">Throw Quilt</option>
+<option value="twin">Twin Quilt</option>
+<option value="full">Full Quilt</option>
+<option value="queen" selected>Queen Quilt</option>
+<option value="king">King Quilt</option>
+<option value="custom">Custom Size</option>
+</select></div>
+<div class="field"><label>Unit</label><select id="unit"><option value="in">Inches</option><option value="cm">Centimeters</option></select></div>
+<div class="field"><label>Width</label><input id="width" value="90" type="number"></div>
+<div class="field"><label>Length</label><input id="length" value="90" type="number"></div>
+<button id="calc" class="btn btn-primary">Calculate Size</button>
+</div>
+<div class="result-panel">
+<h2 class="panel-title">Your Results</h2>
+<div class="primary-result"><div class="eyebrow">QUILT SIZE</div><div class="big" id="result">90 × 90 in</div></div>
+<div class="result-row"><span>Area</span><span id="area">56.25 sq ft</span></div>
+<div class="result-row"><span>Perimeter</span><span id="perimeter">360 in</span></div>
+<div class="result-row"><span>Backing Suggestion</span><span id="backing">98 × 98 in</span></div>
+</div>
+</section>
+<section class="content-card">
+<h2>Quilt Size Chart</h2>
+<table><tr><th>Type</th><th>Common Size</th></tr>
+<tr><td>Baby</td><td>30 × 40 in</td></tr>
+<tr><td>Crib</td><td>36 × 52 in</td></tr>
+<tr><td>Throw</td><td>50 × 60 in</td></tr>
+<tr><td>Twin</td><td>68 × 88 in</td></tr>
+<tr><td>Queen</td><td>90 × 90 in</td></tr>
+<tr><td>King</td><td>108 × 108 in</td></tr>
+</table>
+</section>
+<section class="content-card">
+<h2>Related Quilting Calculators</h2>
+<div class="cards">
+<a class="card" href="/quilting/baby-quilt-size-calculator/">Baby Quilt Size Calculator</a>
+<a class="card" href="/quilting/quilt-backing-calculator/">Quilt Backing Calculator</a>
+<a class="card" href="/quilting/quilt-binding-calculator/">Quilt Binding Calculator</a>
+<a class="card" href="/quilting/quilt-border-calculator/">Quilt Border Calculator</a>
+</div>
+</section>
+</div></main>
+<script src="/quilting/quilt-size-calculator/calculator.js"></script>
+</body></html>
