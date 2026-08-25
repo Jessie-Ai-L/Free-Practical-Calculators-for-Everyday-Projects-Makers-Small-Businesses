@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quilt Backing Calculator – Yardage, Panels & Cutting Plan | MakerEstimate</title>
+<meta name="description" content="Calculate quilt backing yardage, backing size, panels, seams and cut lengths. Compare vertical and horizontal layouts for standard or wide-back fabric.">
+<link rel="canonical" href="https://makerestimate.com/quilting/quilt-backing-calculator/">
+<meta property="og:title" content="Quilt Backing Calculator – Yardage, Panels & Cutting Plan | MakerEstimate">
+<meta property="og:description" content="Estimate quilt backing yardage and compare vertical vs. horizontal panel layouts.">
+<meta property="og:url" content="https://makerestimate.com/quilting/quilt-backing-calculator/">
+<link rel="stylesheet" href="/assets/css/style.css?v=9.2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Quilt Backing Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://makerestimate.com/quilting/quilt-backing-calculator/","description":"Calculate quilt backing yardage, panel count, seam layout and cutting plan."}
+</script>
+<style>
+.preset-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.preset-btn{border:1px solid #dedfea;background:#fff;border-radius:999px;padding:7px 10px;font:inherit;font-size:12px;font-weight:800;color:#565b6d;cursor:pointer}
+.preset-btn:hover{border-color:#bcb5ff;color:#5544e8}
+.layout-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.layout-card{border:1px solid #e2e4ed;border-radius:12px;padding:14px;background:#fff}
+.layout-card.best{border-color:#bdb5ff;background:#faf9ff}
+.layout-card h3{font-size:14px;margin:0 0 8px}
+.layout-card p{font-size:12px;margin:4px 0;color:#73788a}
+.cut-plan{margin-top:14px;padding:14px;border-radius:12px;background:#f7f7fb}
+@media(max-width:620px){.layout-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a>
+<nav class="nav-links"><a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a></nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header>
+
+<main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/quilting/">Sewing & Quilting</a> › Quilt Backing Calculator</nav>
+
+<section class="page-hero">
+<h1>Quilt Backing Calculator</h1>
+<p>Calculate how much backing fabric to buy, how many panels you need, and how to cut them. Compare vertical and horizontal seam layouts automatically.</p>
+<div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ Standard & wide-back fabric</span></div>
+</section>
+
+<section class="calculator-shell">
+<div class="calc-panel">
+<h2 class="panel-title">Backing Yardage Calculator</h2>
+<p class="panel-sub">Enter the finished quilt-top size and the usable width of your backing fabric.</p>
+<form id="backing-form" novalidate>
+<div class="field-grid">
+<div class="field"><label for="quilt-width">Quilt Top Width</label><input id="quilt-width" type="number" value="60" min="1" step=".1"></div>
+<div class="field"><label for="quilt-length">Quilt Top Length</label><input id="quilt-length" type="number" value="80" min="1" step=".1"></div>
+<div class="field"><label for="unit">Measurement Unit</label><select id="unit"><option value="in" selected>Inches</option><option value="cm">Centimeters</option></select></div>
+<div class="field"><label for="overage">Extra Backing per Side</label><input id="overage" type="number" value="4" min="0" step=".1"><div class="microcopy">Use your longarm quilter's requested allowance when applicable.</div></div>
+<div class="field">
+<label for="fabric-width">Usable Fabric Width</label>
+<input id="fabric-width" type="number" value="42" min="1" step=".1">
+<div class="preset-row"><button type="button" class="preset-btn" data-width="42">42"</button><button type="button" class="preset-btn" data-width="44">44"</button><button type="button" class="preset-btn" data-width="108">108" wideback</button></div>
+</div>
+<div class="field"><label for="layout">Layout Preference</label><select id="layout"><option value="auto" selected>Auto – use less fabric</option><option value="vertical">Vertical seams</option><option value="horizontal">Horizontal seams</option></select></div>
+</div>
+<div class="inline-note"><strong>Tip:</strong> enter usable fabric width after any selvage trimming. The calculator rounds purchase yardage up to the nearest ¼ yard (or 0.1 meter).</div>
+<div class="calc-actions">
+<button class="btn btn-primary" type="submit">Calculate Backing</button>
+<button class="btn btn-secondary" id="reset-btn" type="button">Reset</button>
+<button class="btn btn-secondary" id="copy-btn" type="button">Copy Results</button>
+</div>
+<div id="form-error" class="error" role="alert" aria-live="polite"></div>
+</form>
+</div>
+
+<div class="result-panel" aria-live="polite">
+<div class="result-kicker">Backing estimate</div><h2 class="panel-title">Your Results</h2>
+<div class="primary-result"><div class="eyebrow">Recommended Fabric to Buy</div><div class="big" id="buy-result">5 yd</div><div class="sub" id="layout-result">Vertical seams</div></div>
+<div class="result-row"><span class="result-label">Backing Size Needed</span><span class="result-value" id="size-result">68 × 88 in</span></div>
+<div class="result-row"><span class="result-label">Panels Needed</span><span class="result-value" id="panels-result">2</span></div>
+<div class="result-row"><span class="result-label">Seams</span><span class="result-value" id="seams-result">1</span></div>
+<div class="result-row"><span class="result-label">Cut Each Panel</span><span class="result-value" id="cut-result">88 in long</span></div>
+<div class="cut-plan" id="cut-plan">Cut 2 panels, each 88 in long, then join them side by side.</div>
+
+<div class="layout-grid">
+<div class="layout-card" id="vertical-card"><h3>Vertical Layout</h3><p id="vertical-detail"></p></div>
+<div class="layout-card" id="horizontal-card"><h3>Horizontal Layout</h3><p id="horizontal-detail"></p></div>
+</div>
+</div>
+</section>
+
+<section class="content-card">
+<h2>How the Quilt Backing Calculator Works</h2>
+<p>Backing needs to extend beyond the quilt top on every side. The calculator first adds your chosen allowance, then checks how many usable fabric-width panels are needed in both seam directions.</p>
+<div class="formula">Backing Width = Quilt Width + (2 × Extra per Side)</div>
+<div class="formula">Backing Length = Quilt Length + (2 × Extra per Side)</div>
+<div class="formula">Vertical Panels = ceil(Backing Width ÷ Usable Fabric Width)</div>
+<div class="formula">Horizontal Panels = ceil(Backing Length ÷ Usable Fabric Width)</div>
+</section>
+
+<section class="content-card">
+<h2>Worked Example: 60 × 80 Inch Quilt</h2>
+<p>With 4 inches of extra backing on each side, the required backing is <strong>68 × 88 inches</strong>. With 42-inch usable fabric, two vertical panels require 176 linear inches, or about 4.89 yards, so the practical purchase amount is <strong>5 yards</strong>. A horizontal layout needs three 68-inch panels and therefore more fabric.</p>
+</section>
+
+<section class="content-card">
+<h2>Standard Fabric vs. 108-Inch Wide Backing</h2>
+<p>Standard quilting cotton often has about 40–44 inches of usable width and requires piecing for larger quilts. A 108-inch wide-back fabric can cover many quilts with one panel and eliminate backing seams. Enter the actual usable width of the fabric you plan to buy.</p>
+</section>
+
+<section class="content-card">
+<h2>Vertical vs. Horizontal Backing Seams</h2>
+<p>Vertical seams use panels cut to the backing length and joined side by side. Horizontal seams use panels cut to the backing width and stacked top to bottom. Neither orientation is always best, so Auto compares both and recommends the layout that uses less linear fabric.</p>
+</section>
+
+<section class="content-card">
+<h2>How Much Extra Backing Should You Add?</h2>
+<p>Many longarm workflows request extra backing around all four sides, but requirements vary by quilter and machine. Use the allowance requested by the person quilting the project rather than treating one number as universal.</p>
+</section>
+
+<section class="content-card">
+<h2>Frequently Asked Questions</h2>
+<details><summary>How do I calculate quilt backing yardage?</summary><p>Add your desired extra backing to all four sides, calculate how many fabric-width panels are required, multiply the panel count by each panel's cut length, then convert the total linear length to yards or meters.</p></details>
+<details><summary>How much backing do I need for a 60 × 80 quilt?</summary><p>With 4 inches extra per side and 42-inch usable fabric, the backing needs to be 68 × 88 inches. Two vertical panels require about 4.89 yards, which rounds up to a practical 5-yard purchase.</p></details>
+<details><summary>Should quilt backing seams run vertically or horizontally?</summary><p>Either can work. Compare both orientations and choose the one that suits your fabric direction, quilting setup and yardage needs.</p></details>
+<details><summary>Can I use 108-inch wide backing?</summary><p>Yes. Wide-back fabric can eliminate seams on many quilts. Enter 108 inches, or the actual usable width, in the fabric-width field.</p></details>
+<details><summary>Should I include selvages in fabric width?</summary><p>Use the width you actually expect to sew into the backing. If you will trim selvages, enter the remaining usable width.</p></details>
+</section>
+
+<section class="content-card">
+<h2>Related Quilting Calculators</h2>
+<div class="cards">
+<a class="card" href="/quilting/quilt-binding-calculator/"><span class="icon p">B</span><h3>Quilt Binding Calculator</h3><p>Estimate binding strips and yardage for your quilt.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/quilting/"><span class="icon o">Q</span><h3>Sewing & Quilting Calculators</h3><p>Explore the growing MakerEstimate quilting tool collection.</p><span class="go">Explore →</span></a>
+</div>
+</section>
+</div></main>
+
+<footer class="site-footer">
+<div class="container"><div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/food/">Food & Recipe</a></li><li><a href="/quilting/">Sewing & Quilting</a></li><li><a href="/3d-printing/">3D Printing</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About MakerEstimate</a></li><li><a href="/guides/">Guides</a></li><li><a href="/contact/">Contact Us</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
+</div><div class="copyright">© 2026 MakerEstimate. All rights reserved.</div></div>
+</footer>
+<script src="/quilting/quilt-backing-calculator/calculator.js?v=13.0"></script>
+</body></html>

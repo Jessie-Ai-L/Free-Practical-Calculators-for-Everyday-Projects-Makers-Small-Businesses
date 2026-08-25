@@ -114,3 +114,10 @@ The shared stylesheet is cache-busted as `style.css?v=9.2`.
 
 ## V11.1 Fragrance calculator function fix
 The upgraded HTML reused the same `calculator.js` URL as the older version, so browser/CDN cache could serve stale JavaScript that no longer matched the new field IDs. V11.1 cache-busts the script as `calculator.js?v=11.1` and listens to both input and change events.
+
+
+## V13 Quilt Backing Calculator
+- Added /quilting/quilt-backing-calculator/
+- Compares vertical and horizontal layouts.
+- Supports inches/cm, 42/44/108 presets, Auto layout, reset and copy.
+- Added sitemap entry and internal discovery cards where supported.
