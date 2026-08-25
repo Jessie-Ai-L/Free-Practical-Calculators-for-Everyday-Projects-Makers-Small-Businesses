@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baby Quilt Size Calculator – Newborn & Crib Quilt Sizes | MakerEstimate</title>
+<meta name="description" content="Find a practical baby quilt size for newborns, tummy time, cribs and toddlers. Compare inches and centimeters, then estimate backing and batting sizes.">
+<link rel="canonical" href="https://makerestimate.com/quilting/baby-quilt-size-calculator/">
+<meta property="og:title" content="Baby Quilt Size Calculator – Newborn & Crib Quilt Sizes | MakerEstimate">
+<meta property="og:description" content="Choose a baby quilt use, compare common sizes, and estimate backing, batting, area and perimeter.">
+<meta property="og:url" content="https://makerestimate.com/quilting/baby-quilt-size-calculator/">
+<link rel="stylesheet" href="/assets/css/style.css?v=9.2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Baby Quilt Size Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://makerestimate.com/quilting/baby-quilt-size-calculator/","description":"Choose a practical baby quilt size and estimate backing, batting, area and perimeter."}
+</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {"@type":"Question","name":"What size should a newborn quilt be?","acceptedAnswer":{"@type":"Answer","text":"There is no single required size. A 30 × 40 inch quilt is a practical compact starting point, while makers may choose larger or smaller dimensions depending on the project."}},
+  {"@type":"Question","name":"Is 30 × 40 a good baby quilt size?","acceptedAnswer":{"@type":"Answer","text":"Yes, 30 × 40 inches can work well for a compact baby or newborn quilt. For a larger everyday baby quilt, dimensions such as 36 × 45 inches are a useful starting point."}},
+  {"@type":"Question","name":"What is a common baby quilt size?","acceptedAnswer":{"@type":"Answer","text":"Baby quilts vary considerably. Sizes around 30 × 40, 36 × 45 and 40 × 40 inches are useful planning points for different types of projects."}},
+  {"@type":"Question","name":"What size is a crib quilt?","acceptedAnswer":{"@type":"Answer","text":"Crib-style quilts are generally longer than compact baby quilts. This calculator uses 36 × 52 inches as one planning preset, but actual dimensions can vary."}},
+  {"@type":"Question","name":"How much larger should backing be than a baby quilt?","acceptedAnswer":{"@type":"Answer","text":"Backing is normally cut larger than the finished quilt top to provide working room during quilting. Enter your preferred extra allowance in the calculator to estimate the backing dimensions."}},
+  {"@type":"Question","name":"Can I use centimeters?","acceptedAnswer":{"@type":"Answer","text":"Yes. Switch the calculator to centimeters and MakerEstimate will convert the dimensions and results automatically."}}
+ ]
+}
+</script>
+<style>
+.preset-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.size-preset{border:1px solid #e1e3ec;border-radius:12px;background:#fff;padding:14px;text-align:left;cursor:pointer}
+.size-preset:hover,.size-preset.active{border-color:#bbb2ff;background:#faf9ff}
+.size-preset strong{display:block;font-size:15px;color:#11163f}
+.size-preset span{display:block;margin-top:4px;font-size:11px;color:#767b8c}
+.plan-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.compare-table td,.compare-table th{text-align:left}
+.safety-note{background:#fff8e8;border:1px solid #f0dfb3;border-radius:10px;padding:12px 14px;color:#6d5a2b}
+@media(max-width:900px){.preset-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.preset-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container nav">
+<a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a>
+<nav class="nav-links"><a href="/calculators/">Calculators⌄</a><a href="/categories/">Categories⌄</a><a href="/guides/">Guides</a><a href="/about/">About</a></nav>
+<div class="nav-actions"><a class="btn btn-secondary" href="/calculators/">Search</a><a class="btn btn-primary" href="/calculators/">All Calculators</a></div>
+</div></header>
+
+<main><div class="container">
+<nav class="breadcrumbs"><a href="/">Home</a> › <a href="/quilting/">Sewing & Quilting</a> › Baby Quilt Size Calculator</nav>
+
+<section class="page-hero">
+<h1>Baby Quilt Size Calculator</h1>
+<p>Find a practical starting size for a newborn, baby, crib or toddler quilt. Compare inches and centimeters, customize the dimensions, and estimate backing and batting.</p>
+<div class="trust-row"><span class="badge">✓ Free to use</span><span class="badge">⚡ Instant results</span><span class="badge">◉ Inches & centimeters</span></div>
+</section>
+
+<section class="calculator-shell">
+<div class="calc-panel">
+<h2 class="panel-title">Baby Quilt Size Planner</h2>
+<p class="panel-sub">Choose a use, then adjust the finished dimensions if your pattern or project needs a custom size.</p>
+<form id="size-form" novalidate>
+<div class="field-grid">
+<div class="field">
+<label for="use">Quilt Use</label>
+<select id="use">
+<option value="newborn" selected>Newborn / Small Baby Quilt</option>
+<option value="everyday">Everyday Baby Quilt</option>
+<option value="play">Tummy Time / Play Quilt</option>
+<option value="crib">Crib-Size Quilt</option>
+<option value="toddler">Toddler / Grow-With-Baby</option>
+<option value="custom">Custom Size</option>
+</select>
+</div>
+<div class="field"><label for="unit">Measurement Unit</label><select id="unit"><option value="in" selected>Inches</option><option value="cm">Centimeters</option></select></div>
+<div class="field"><label for="width">Finished Quilt Width</label><input id="width" type="number" value="30" min="1" step=".1"></div>
+<div class="field"><label for="length">Finished Quilt Length</label><input id="length" type="number" value="40" min="1" step=".1"></div>
+<div class="field"><label for="backing-extra">Extra Backing per Side</label><input id="backing-extra" type="number" value="4" min="0" step=".1"></div>
+<div class="field"><label for="batting-extra">Extra Batting per Side</label><input id="batting-extra" type="number" value="4" min="0" step=".1"></div>
+</div>
+<div class="inline-note"><strong>Planning note:</strong> these are practical starting points, not universal quilt-size standards. Adjust dimensions for your pattern and intended use.</div>
+<div class="calc-actions"><button class="btn btn-primary" type="submit">Calculate Quilt Size</button><button class="btn btn-secondary" id="reset-btn" type="button">Reset</button><button class="btn btn-secondary" id="copy-btn" type="button">Copy Results</button></div>
+<div id="form-error" class="error" role="alert" aria-live="polite"></div>
+</form>
+</div>
+
+<div class="result-panel" aria-live="polite">
+<div class="result-kicker">Size plan</div><h2 class="panel-title">Your Results</h2>
+<div class="primary-result"><div class="eyebrow">RECOMMENDED STARTING SIZE</div><div class="big" id="size-result">30 × 40 in</div><div class="sub" id="metric-result">76.2 × 101.6 cm</div></div>
+<div class="result-row"><span class="result-label">Quilt Use</span><span class="result-value" id="use-result">Newborn / Small Baby</span></div>
+<div class="result-row"><span class="result-label">Quilt Area</span><span class="result-value" id="area-result">8.33 sq ft</span></div>
+<div class="result-row"><span class="result-label">Quilt Perimeter</span><span class="result-value" id="perimeter-result">140 in</span></div>
+<div class="result-row"><span class="result-label">Backing Size</span><span class="result-value" id="backing-result">38 × 48 in</span></div>
+<div class="result-row"><span class="result-label">Batting Size</span><span class="result-value" id="batting-result">38 × 48 in</span></div>
+<div class="recommendation" id="recommendation">30 × 40 inches is a practical compact starting point for a newborn or small baby quilt.</div>
+<div class="plan-actions">
+<a class="btn btn-secondary" href="/quilting/quilt-backing-calculator/">Calculate Backing</a>
+<a class="btn btn-secondary" href="/quilting/quilt-binding-calculator/">Calculate Binding</a>
+<a class="btn btn-secondary" href="/quilting/quilt-border-calculator/">Add Quilt Borders</a>
+</div>
+</div>
+</section>
+
+<section class="content-card">
+<h2>Common Baby Quilt Size Starting Points</h2>
+<div class="preset-grid">
+<button class="size-preset active" data-use="newborn"><strong>30 × 40 in</strong><span>Newborn / Small Baby</span></button>
+<button class="size-preset" data-use="everyday"><strong>36 × 45 in</strong><span>Everyday Baby Quilt</span></button>
+<button class="size-preset" data-use="play"><strong>40 × 40 in</strong><span>Tummy Time / Play</span></button>
+<button class="size-preset" data-use="crib"><strong>36 × 52 in</strong><span>Crib-Size</span></button>
+<button class="size-preset" data-use="toddler"><strong>40 × 50 in</strong><span>Toddler / Grow-With-Baby</span></button>
+</div>
+</section>
+
+<section class="content-card">
+<h2>Baby Quilt Size Chart</h2>
+<table>
+<thead><tr><th>Quilt Type</th><th>Inches</th><th>Approx. Centimeters</th></tr></thead>
+<tbody>
+<tr><td>Newborn / Small Baby</td><td>30 × 40</td><td>76 × 102</td></tr>
+<tr><td>Everyday Baby</td><td>36 × 45</td><td>91 × 114</td></tr>
+<tr><td>Tummy Time / Play</td><td>40 × 40</td><td>102 × 102</td></tr>
+<tr><td>Crib-Size</td><td>36 × 52</td><td>91 × 132</td></tr>
+<tr><td>Toddler / Grow-With-Baby</td><td>40 × 50</td><td>102 × 127</td></tr>
+</tbody>
+</table>
+<p>These are practical starting points rather than universal quilt-size standards. Baby quilt dimensions vary by pattern, maker preference and intended use.</p>
+</section>
+
+<section class="content-card">
+<h2>What Size Is a Newborn Quilt?</h2>
+<p>A compact newborn quilt is often made around <strong>30 × 40 inches</strong>, although there is no single required newborn quilt size. Some quilters prefer slightly wider, shorter or longer dimensions depending on the pattern and intended use.</p>
+<p>For planning purposes, MakerEstimate uses 30 × 40 inches as the default newborn starting point and lets you customize both dimensions.</p>
+</section>
+
+<section class="content-card">
+<h2>What Is a Good Baby Quilt Size?</h2>
+<p>A good baby quilt size depends on how the quilt will be used. A 30 × 40-inch quilt is compact, 36 × 45 inches gives more everyday coverage, and a 40 × 40-inch square works well as a play or tummy-time project. Use the presets as planning points, then adapt them to your pattern.</p>
+</section>
+
+<section class="content-card">
+<h2>30 × 40 vs. 36 × 45 Baby Quilt</h2>
+<table class="compare-table">
+<thead><tr><th></th><th>30 × 40</th><th>36 × 45</th></tr></thead>
+<tbody>
+<tr><td>Area</td><td>1,200 sq in</td><td>1,620 sq in</td></tr>
+<tr><td>Approx. sq ft</td><td>8.33</td><td>11.25</td></tr>
+<tr><td>Best starting use</td><td>Newborn / compact</td><td>Everyday baby quilt</td></tr>
+<tr><td>Fabric requirement</td><td>Lower</td><td>Higher</td></tr>
+<tr><td>Room to grow</td><td>Less</td><td>More</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="content-card">
+<h2>Baby Quilt vs. Crib Quilt Size</h2>
+<p>“Baby quilt” is a broad project category, while crib-size quilts typically use a longer rectangular proportion. This planner includes 36 × 52 inches as a crib-style preset for sewing and dimension planning.</p>
+<div class="safety-note"><strong>Important:</strong> quilt dimensions are a sewing and project-planning consideration, not a recommendation for infant sleep use. Follow current safe-sleep guidance and keep loose bedding out of an infant sleep space where recommended.</div>
+</section>
+
+<section class="content-card">
+<h2>How Much Bigger Should Backing and Batting Be?</h2>
+<p>The calculator adds your selected allowance to all four sides of the finished quilt.</p>
+<div class="formula">Backing Width = Quilt Width + (2 × Extra per Side)</div>
+<div class="formula">Backing Length = Quilt Length + (2 × Extra per Side)</div>
+<p>Use the allowance requested by your quilting method or longarm quilter. Once you have the target size, use the <a href="/quilting/quilt-backing-calculator/" style="color:#4e3fe6;font-weight:800">Quilt Backing Calculator</a> to estimate yardage and panel layout.</p>
+</section>
+
+<section class="content-card">
+<h2>Baby Quilt Sizes in Inches and Centimeters</h2>
+<p>Switch the calculator between inches and centimeters at any time. The finished size, backing allowance, batting allowance, perimeter and displayed results convert automatically so you can work in the measurement system used by your pattern.</p>
+</section>
+
+<section class="content-card">
+<h2>Frequently Asked Questions</h2>
+<details><summary>What size should a newborn quilt be?</summary><p>There is no single required size. A 30 × 40 inch quilt is a practical compact starting point, while makers may choose larger or smaller dimensions depending on the project.</p></details>
+<details><summary>Is 30 × 40 a good baby quilt size?</summary><p>Yes, 30 × 40 inches can work well for a compact baby or newborn quilt. For a larger everyday baby quilt, you may prefer dimensions such as 36 × 45 inches.</p></details>
+<details><summary>What is a common baby quilt size?</summary><p>Baby quilts vary considerably. Sizes around 30 × 40, 36 × 45 and 40 × 40 inches are useful planning points for different types of projects.</p></details>
+<details><summary>What size is a crib quilt?</summary><p>Crib-style quilts are generally longer than compact baby quilts. This calculator uses 36 × 52 inches as one planning preset, but actual dimensions can vary.</p></details>
+<details><summary>How much larger should backing be than a baby quilt?</summary><p>Backing is normally cut larger than the finished quilt top to provide working room during quilting. Enter your preferred extra allowance in the calculator to estimate the backing dimensions.</p></details>
+<details><summary>Can I use centimeters?</summary><p>Yes. Switch the calculator to centimeters and MakerEstimate will convert the dimensions and results automatically.</p></details>
+</section>
+
+<section class="content-card"><h2>Related Quilting Calculators</h2><div class="cards">
+<a class="card" href="/quilting/quilt-backing-calculator/"><span class="icon p">B</span><h3>Quilt Backing Calculator</h3><p>Calculate backing yardage, panels and cutting plans.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/quilting/quilt-binding-calculator/"><span class="icon o">B</span><h3>Quilt Binding Calculator</h3><p>Estimate binding strips and fabric yardage.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/quilting/quilt-border-calculator/"><span class="icon p">B</span><h3>Quilt Border Calculator</h3><p>Plan border strips, yardage and finished quilt size.</p><span class="go">Calculate →</span></a>
+<a class="card" href="/quilting/"><span class="icon p">Q</span><h3>Sewing & Quilting Calculators</h3><p>Explore the growing MakerEstimate quilting tool collection.</p><span class="go">Explore →</span></a>
+</div></section>
+</div></main>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div><a class="brand" href="/"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span class="brand-copy">MakerEstimate<small>Practical Calculators</small></span></a><p class="footer-note">Free practical calculators for everyday projects, makers, food, crafts, gardening and small businesses.</p></div>
+<div><h4>Calculators</h4><ul><li><a href="/calculators/">All Calculators</a></li><li><a href="/candle/">Candle</a></li><li><a href="/quilting/">Quilting</a></li></ul></div>
+<div><h4>Categories</h4><ul><li><a href="/candle/">Candle Calculators</a></li><li><a href="/food/">Food & Recipe</a></li><li><a href="/quilting/">Sewing & Quilting</a></li><li><a href="/3d-printing/">3D Printing</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="/about/">About MakerEstimate</a></li><li><a href="/guides/">Guides</a></li><li><a href="/contact/">Contact Us</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul></div>
+</div><div class="copyright">© 2026 MakerEstimate. All rights reserved.</div></div></footer>
+<script src="/quilting/baby-quilt-size-calculator/calculator.js?v=15.0"></script>
+</body></html>

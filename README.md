@@ -127,3 +127,9 @@ The upgraded HTML reused the same `calculator.js` URL as the older version, so b
 - Added /quilting/quilt-border-calculator/
 - Supports 1–4 sequential borders, inches/cm, WOF presets, butted/mitered corners, reset and copy.
 - Added discovery links and sitemap entry.
+
+
+## V15 Baby Quilt Size Calculator
+- Added /quilting/baby-quilt-size-calculator/
+- Interactive use presets, inches/cm conversion, backing and batting estimates, reset and copy.
+- Added FAQ schema, sitemap entry, All Calculators and Quilting discovery links.
